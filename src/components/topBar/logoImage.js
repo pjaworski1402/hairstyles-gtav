@@ -15,7 +15,6 @@ const LogoImage = () => {
       }
     }
   `)
-
   const StyledImg = styled(Img)`
     width: 35px;
     height: 35px;

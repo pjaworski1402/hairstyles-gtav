@@ -26,6 +26,7 @@ const Burger = styled.button`
 const BannerText = styled.span`
   font-size: 24px;
   margin: 0 20px;
+  font-family: "Offside", cursive;
 `
 
 const TopBar = () => {
