@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import TopBar from "./topBar/topBar"
+import CartButton from "./cartButton/CartButton"
 import Footer from "./footer/Footer"
 
 const Layout = ({ children }) => {
@@ -9,6 +10,7 @@ const Layout = ({ children }) => {
     <>
       <TopBar />
       {children}
+      <CartButton />
       <Footer />
     </>
   )
