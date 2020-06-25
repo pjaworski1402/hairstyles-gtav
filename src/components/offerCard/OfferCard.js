@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 
-// import Template from "../../assets/images/template.jpg"
 import PrimaryButton from "../buttons/PrimaryButton"
 import CartImage from "../../assets/images/cart.svg"
 import ImageLoader from "./ImageLoader"
@@ -22,36 +21,48 @@ const StyledOfferCard = styled.div`
 const StyledPrice = styled.span`
   font-weight: 700;
   font-size: 24px;
+  margin-left: 25px;
 `
 
 const BuyWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 5%;
 `
 
 const TagWrapper = styled.ul`
-  width: 20%;
+  width: ${({ width }) => width};
   display: flex;
+  align-items: baseline;
   flex-wrap: wrap;
   padding: 0;
+  font-size: 14px;
 `
 
 const StyledTag = styled.li`
   list-style: none;
   padding: 0 5px;
+  margin: 0 5px 5px 5px;
+  background-color: rgba(39, 83, 255, 0.3);
+  border-radius: 5px;
+  color: white;
+  :hover {
+    background-color: rgba(39, 83, 255, 0.8);
+    cursor: pointer;
+  }
 `
 
 const OfferCard = ({ data }) => {
+  const imageWidth = "250px"
   return (
     <StyledOfferCard>
-      {/* <img src={data.img} width="300px" /> */}
-      <ImageLoader name={data.img} />
-      <TagWrapper>
+      <ImageLoader name={data.img} width={imageWidth} />
+      <TagWrapper width={imageWidth}>
         Tags:
-        {/* {data.tags.map(tagName => (
-          <StyledTag>{tagName}</StyledTag>
-        ))} */}
+        {data.tags.map(tagName => (
+          <StyledTag key={tagName}>#{tagName}</StyledTag>
+        ))}
       </TagWrapper>
       <BuyWrapper>
         <PrimaryButton icon={CartImage}>Add to cart</PrimaryButton>

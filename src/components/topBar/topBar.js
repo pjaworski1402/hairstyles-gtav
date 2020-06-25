@@ -79,7 +79,9 @@ const TopBar = () => {
       <LogoImage />
       <BannerText>hairstyles-gta5</BannerText>
       {navs.map(({ navTo, name }) => (
-        <StyledNavs href={navTo}>{name}</StyledNavs>
+        <StyledNavs key={name} href={navTo}>
+          {name}
+        </StyledNavs>
       ))}
       <Burger />
     </TopBarWrapper>

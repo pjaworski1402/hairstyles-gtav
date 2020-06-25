@@ -10,6 +10,7 @@ const StyledOffersList = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  align-items: flex-start;
 `
 
 const Offers = () => {

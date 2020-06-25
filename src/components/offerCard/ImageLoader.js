@@ -3,7 +3,7 @@ import Img from "gatsby-image"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
-const ImageLoader = ({ name }) => (
+const ImageLoader = ({ name, width }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -34,7 +34,7 @@ const ImageLoader = ({ name }) => (
 
       const imageSizes = image.node.childImageSharp.fluid
       const StyledImage = styled(Img)`
-        width: 250px;
+        width: ${width};
         border-radius: 5px;
       `
       return <StyledImage alt={name} fluid={imageSizes} />
