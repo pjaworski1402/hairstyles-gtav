@@ -37,7 +37,6 @@ const TopBarWrapper = styled.nav`
   z-index: 1;
   background-color: #fff;
   width: 100%;
-  justify-content: space-between;
 `
 const Burger = styled.button`
   width: 25px;
@@ -54,19 +53,24 @@ const Burger = styled.button`
     display: none;
   }
 `
-const StyledNavs = styled.div`
+const StyledNavs = styled.a`
+  display: none;
   text-transform: uppercase;
   color: black;
   font-weight: 100;
+  font-size: 20px;
   margin-left: 5%;
   text-decoration: none;
+  @media (min-width: 992px) {
+    display: block;
+  }
 `
 
 const BannerText = styled.span`
   font-size: 20px;
-  margin: 0 20px;
   font-family: "Offside", cursive;
-  float: left;
+  margin-right: auto;
+  margin-left: 20px;
 `
 
 const TopBar = () => {
