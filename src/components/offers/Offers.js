@@ -13,7 +13,6 @@ const StyledOffersList = styled.section`
 `
 
 const Offers = () => {
-  console.log(OffersJSONData)
   return (
     <>
       <Title>for woman</Title>
