@@ -4,8 +4,30 @@ import styled from "styled-components"
 
 import burger from "../../assets/images/burger.svg"
 
-const TopBarWrapper = styled.div`
-  /* height: 64px; */
+const navs = [
+  {
+    name: "for woman",
+    navTo: "/",
+  },
+  {
+    name: "for man",
+    navTo: "/",
+  },
+  {
+    name: "custom hair",
+    navTo: "/",
+  },
+  {
+    name: "instruction",
+    navTo: "/",
+  },
+  {
+    name: "contact",
+    navTo: "/",
+  },
+]
+
+const TopBarWrapper = styled.nav`
   display: flex;
   align-items: center;
   padding: 15px 20px;
@@ -15,6 +37,7 @@ const TopBarWrapper = styled.div`
   z-index: 1;
   background-color: #fff;
   width: 100%;
+  justify-content: space-between;
 `
 const Burger = styled.button`
   width: 25px;
@@ -27,11 +50,23 @@ const Burger = styled.button`
   border: none;
   justify-self: right;
   margin-left: auto;
+  @media (min-width: 992px) {
+    display: none;
+  }
 `
+const StyledNavs = styled.div`
+  text-transform: uppercase;
+  color: black;
+  font-weight: 100;
+  margin-left: 5%;
+  text-decoration: none;
+`
+
 const BannerText = styled.span`
   font-size: 20px;
   margin: 0 20px;
   font-family: "Offside", cursive;
+  float: left;
 `
 
 const TopBar = () => {
@@ -39,6 +74,9 @@ const TopBar = () => {
     <TopBarWrapper>
       <LogoImage />
       <BannerText>hairstyles-gta5</BannerText>
+      {navs.map(({ navTo, name }) => (
+        <StyledNavs href={navTo}>{name}</StyledNavs>
+      ))}
       <Burger />
     </TopBarWrapper>
   )
