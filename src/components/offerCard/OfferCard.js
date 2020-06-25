@@ -1,9 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 
-import Template from "../../assets/images/template.jpg"
+// import Template from "../../assets/images/template.jpg"
 import PrimaryButton from "../buttons/PrimaryButton"
 import CartImage from "../../assets/images/cart.svg"
+import ImageLoader from "./ImageLoader"
 
 const StyledOfferCard = styled.div`
   background-color: #f9faff;
@@ -13,6 +14,9 @@ const StyledOfferCard = styled.div`
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  @media (min-width: 992px) {
+    padding: 40px;
+  }
 `
 
 const StyledPrice = styled.span`
@@ -39,10 +43,10 @@ const StyledTag = styled.li`
 `
 
 const OfferCard = ({ data }) => {
-  console.log(data)
   return (
     <StyledOfferCard>
-      <img src={Template} width="200px" />
+      {/* <img src={data.img} width="300px" /> */}
+      <ImageLoader name={data.img} />
       <TagWrapper>
         Tags:
         {/* {data.tags.map(tagName => (

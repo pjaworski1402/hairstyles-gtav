@@ -9,7 +9,7 @@ const BackgroundSection = ({ children }) => (
       query {
         desktop: file(relativePath: { eq: "womanCar.jpg" }) {
           childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
+            fluid(quality: 90, maxWidth: 1920, grayscale: true) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
@@ -23,7 +23,7 @@ const BackgroundSection = ({ children }) => (
           Tag="section"
           fluid={imageData}
           backgroundColor={`#040e18`}
-          style={{ width: "100%" }}
+          style={{ width: "100%", backgroundPosition: "center 30%" }}
         >
           {children}
         </BackgroundImage>

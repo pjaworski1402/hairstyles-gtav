@@ -9,11 +9,15 @@ const StyledTitle = styled.h1`
   text-align: center;
 `
 
-const StyledContent = styled.div`
+const StyledText = styled.div`
   color: white;
   font-size: 18px;
   font-weight: 200;
-  margin: 20px 15px;
+  margin: 5vw 15px;
+  @media (min-width: 992px) {
+    text-align: center;
+    font-size: 24px;
+  }
 `
 
 const StyledButton = styled.button`
@@ -23,16 +27,21 @@ const StyledButton = styled.button`
   padding: 10px 15px;
   margin: 20px;
   font-size: 16px;
+  font-weight: 600;
+  @media (min-width: 992px) {
+    padding: 15px 30px;
+    font-size: 18px;
+  }
 `
 
 const NewStyleCard = () => {
   return (
     <Card>
       <StyledTitle>Didn't find your style?</StyledTitle>
-      <StyledContent>
+      <StyledText>
         Show us what creation you are looking for. We will try to make it for
         you!
-      </StyledContent>
+      </StyledText>
       <div style={{ textAlign: "center" }}>
         <StyledButton>Order now!</StyledButton>
       </div>

@@ -6,14 +6,23 @@ import BackgroundSection from "./BackgroundSection"
 const Title = styled.h1`
   color: white;
   margin: 0;
-  padding: 15px 10%;
+  padding: 5vw 10%;
   text-align: center;
   font-size: 30px;
+  text-shadow: 0 0 15px black;
+  @media (min-width: 992px) {
+    font-size: 48px;
+  }
 `
 const Text = styled.div`
   text-align: center;
   color: white;
-  padding: 10px;
+  text-shadow: 0 0 5px black;
+  padding: 5vw;
+  font-size: 14px;
+  @media (min-width: 992px) {
+    font-size: 24px;
+  }
 `
 
 const TopBanner = () => {

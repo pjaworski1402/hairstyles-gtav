@@ -16,6 +16,9 @@ body{
 *, *::before, *::after{
   box-sizing:border-box;
 }
+button:hover{
+  cursor: pointer;
+}
 `
 
 const IndexPage = () => (

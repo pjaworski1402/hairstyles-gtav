@@ -17,7 +17,6 @@ const LogoImage = () => {
   `)
   const StyledImg = styled(Img)`
     width: 35px;
-    height: 35px;
   `
 
   return <StyledImg fluid={data.placeholderImage.childImageSharp.fluid} />
