@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 
 import CartButtonImage from "../../assets/images/cartButton.svg"
+import { CartContext } from "../../context/cartContext"
 
 const CartWrapper = styled.button`
   position: fixed;
@@ -32,9 +33,10 @@ const CartCounter = styled.div`
 `
 
 const CartButton = () => {
+  const cartContext = useContext(CartContext)
   return (
     <CartWrapper img={CartButtonImage}>
-      <CartCounter>15</CartCounter>
+      <CartCounter>{cartContext.state.length}</CartCounter>
     </CartWrapper>
   )
 }

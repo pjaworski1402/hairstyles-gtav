@@ -10,7 +10,7 @@ export const CartContext = createContext({
 })
 
 const initialState = {
-  orders: ["test"],
+  orders: [],
 }
 
 export const GlobalStateProvider = ({ children }) => {
@@ -19,10 +19,7 @@ export const GlobalStateProvider = ({ children }) => {
   const addOrder = order => {
     dispatch({
       type: ADD_ORDER,
-      payload: {
-        id: 21,
-        content: "XD",
-      },
+      payload: order,
     })
   }
 

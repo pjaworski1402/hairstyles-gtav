@@ -25,13 +25,13 @@ const offers = {
   ],
   offersMan: [
     {
-      id: 1,
+      id: 3,
       img: "man.jpg",
       tags: ["blond", "short", "man"],
       price: 15,
     },
     {
-      id: 2,
+      id: 4,
       img: "man.jpg",
       tags: ["blond", "short", "man"],
       price: 15,

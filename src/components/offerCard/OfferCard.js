@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 
 import PrimaryButton from "../buttons/PrimaryButton"
 import CartImage from "../../assets/images/cart.svg"
 import ImageLoader from "./ImageLoader"
+import { CartContext } from "../../context/cartContext"
 
 const StyledOfferCard = styled.div`
   background-color: #f9faff;
@@ -52,9 +53,18 @@ const StyledTag = styled.li`
     cursor: pointer;
   }
 `
+const imageWidth = "250px"
 
 const OfferCard = ({ data }) => {
-  const imageWidth = "250px"
+  const context = useContext(CartContext)
+  const addToCart = () => {
+    const inCart = context.state.find(state => state.id === data.id)
+    if (typeof inCart === "undefined") {
+      context.addOrder(data)
+    } else {
+      window.alert("Already added!")
+    }
+  }
   return (
     <StyledOfferCard>
       <ImageLoader name={data.img} width={imageWidth} />
@@ -65,7 +75,9 @@ const OfferCard = ({ data }) => {
         ))}
       </TagWrapper>
       <BuyWrapper>
-        <PrimaryButton icon={CartImage}>Add to cart</PrimaryButton>
+        <PrimaryButton icon={CartImage} onClick={addToCart}>
+          Add to cart
+        </PrimaryButton>
         <StyledPrice>{data.price}$</StyledPrice>
       </BuyWrapper>
     </StyledOfferCard>
