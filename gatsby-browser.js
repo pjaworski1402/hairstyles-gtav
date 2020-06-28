@@ -1,7 +1,7 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+const React = require("react")
 
-// You can delete this file if you're not using it
+const { GlobalStateProvider } = require("./src/context/cartContext")
+
+exports.wrapRootElement = ({ element }) => {
+  return <GlobalStateProvider>{element}</GlobalStateProvider>
+}
