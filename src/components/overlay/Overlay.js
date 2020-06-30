@@ -15,7 +15,7 @@ const OverlayBackground = styled.div`
 
 const OverlayWindow = styled.div`
   background-color: white;
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   top: 50%;
@@ -33,6 +33,7 @@ const OverlayTopWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 15%;
 `
 
 const OverlayTitle = styled.h1`
@@ -54,16 +55,16 @@ const OverlayCloseButton = styled.button`
 `
 
 const OverlayContent = styled.div`
-  width: 100%;
+  height: 85%;
 `
 
-const Overlay = ({ title, children, close }) => {
+const Overlay = ({ title, children, setOverlayOpen }) => {
   return (
     <OverlayBackground>
       <OverlayWindow>
         <OverlayTopWrapper>
           <OverlayTitle>{title}</OverlayTitle>
-          <OverlayCloseButton />
+          <OverlayCloseButton onClick={() => setOverlayOpen(false)} />
         </OverlayTopWrapper>
         <OverlayContent>{children}</OverlayContent>
       </OverlayWindow>

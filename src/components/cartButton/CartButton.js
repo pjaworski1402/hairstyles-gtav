@@ -1,8 +1,10 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import styled from "styled-components"
 
 import CartButtonImage from "../../assets/images/cartButton.svg"
 import { CartContext } from "../../context/cartContext"
+import Overlay from "../overlay/Overlay"
+import CartContent from "./CartContent"
 
 const CartWrapper = styled.button`
   position: fixed;
@@ -33,11 +35,22 @@ const CartCounter = styled.div`
 `
 
 const CartButton = () => {
+  const [overlayOpen, setOverlayOpen] = useState(false)
   const cartContext = useContext(CartContext)
   return (
-    <CartWrapper img={CartButtonImage}>
-      <CartCounter>{cartContext.state.length}</CartCounter>
-    </CartWrapper>
+    <>
+      {overlayOpen && (
+        <Overlay title={"Cart"} setOverlayOpen={setOverlayOpen}>
+          <CartContent />
+        </Overlay>
+      )}
+      <CartWrapper
+        img={CartButtonImage}
+        onClick={() => setOverlayOpen(!overlayOpen)}
+      >
+        <CartCounter>{cartContext.state.length}</CartCounter>
+      </CartWrapper>
+    </>
   )
 }
 

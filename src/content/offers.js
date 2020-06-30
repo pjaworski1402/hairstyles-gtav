@@ -36,6 +36,42 @@ const offers = {
       tags: ["blond", "short", "man"],
       price: 15,
     },
+    {
+      id: 5,
+      img: "man.jpg",
+      tags: ["blond", "short", "man"],
+      price: 15,
+    },
+    {
+      id: 6,
+      img: "man.jpg",
+      tags: ["blond", "short", "man"],
+      price: 15,
+    },
+    {
+      id: 7,
+      img: "man.jpg",
+      tags: ["blond", "short", "man"],
+      price: 15,
+    },
+    {
+      id: 8,
+      img: "man.jpg",
+      tags: ["blond", "short", "man"],
+      price: 15,
+    },
+    {
+      id: 9,
+      img: "man.jpg",
+      tags: ["blond", "short", "man"],
+      price: 15,
+    },
+    {
+      id: 10,
+      img: "man.jpg",
+      tags: ["blond", "short", "man"],
+      price: 15,
+    },
   ],
 }
 

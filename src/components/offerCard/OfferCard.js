@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import PrimaryButton from "../buttons/PrimaryButton"
 import CartImage from "../../assets/images/cart.svg"
-import ImageLoader from "./ImageLoader"
+import ImageLoader from "../orderImageLoader/ImageLoader"
 import { CartContext } from "../../context/cartContext"
 
 const StyledOfferCard = styled.div`

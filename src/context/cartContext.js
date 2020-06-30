@@ -1,11 +1,14 @@
 import React, { createContext, useReducer } from "react"
 import cartReducers from "./cartReducers"
-import { ADD_ORDER } from "./types"
+import { ADD_ORDER, REMOVE_ORDER } from "./types"
 
 export const CartContext = createContext({
   orders: [],
   addOrder: order => {
     console.log("addOrder")
+  },
+  removeOrder: order => {
+    console.log("removeOrder")
   },
 })
 
@@ -22,9 +25,17 @@ export const GlobalStateProvider = ({ children }) => {
       payload: order,
     })
   }
+  const removeOrder = order => {
+    dispatch({
+      type: REMOVE_ORDER,
+      payload: order,
+    })
+  }
 
   return (
-    <CartContext.Provider value={{ state: state.orders, addOrder }}>
+    <CartContext.Provider
+      value={{ state: state.orders, addOrder, removeOrder }}
+    >
       {children}
     </CartContext.Provider>
   )
