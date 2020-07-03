@@ -1,10 +1,13 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import styled from "styled-components"
 
+import addToCart from "../../utils/addToCart"
 import PrimaryButton from "../buttons/PrimaryButton"
 import CartImage from "../../assets/images/cart.svg"
 import ImageLoader from "../orderImageLoader/ImageLoader"
-import { CartContext } from "../../context/cartContext"
+import { CartContext } from "../../context/globalContext"
+import Overlay from "../overlay/Overlay"
+import Gallery from "./Gallery"
 
 const StyledOfferCard = styled.div`
   background-color: #f9faff;
@@ -53,34 +56,64 @@ const StyledTag = styled.li`
     cursor: pointer;
   }
 `
+const ImageButton = styled.button`
+  position: relative;
+  border: none;
+  display: flex;
+  background-color: transparent;
+  :hover {
+    ::after {
+      content: "View all images";
+      font-size: 18px;
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+`
+
 const imageWidth = "250px"
 
 const OfferCard = ({ data }) => {
+  const [overlayOpen, setOverlayOpen] = useState(false)
   const context = useContext(CartContext)
-  const addToCart = () => {
-    const inCart = context.state.find(state => state.id === data.id)
-    if (typeof inCart === "undefined") {
-      context.addOrder(data)
-    } else {
-      window.alert("Already added!")
-    }
-  }
+
   return (
-    <StyledOfferCard>
-      <ImageLoader name={data.img} width={imageWidth} />
-      <TagWrapper width={imageWidth}>
-        Tags:
-        {data.tags.map(tagName => (
-          <StyledTag key={tagName}>#{tagName}</StyledTag>
-        ))}
-      </TagWrapper>
-      <BuyWrapper>
-        <PrimaryButton icon={CartImage} onClick={addToCart}>
-          Add to cart
-        </PrimaryButton>
-        <StyledPrice>{data.price}$</StyledPrice>
-      </BuyWrapper>
-    </StyledOfferCard>
+    <>
+      {overlayOpen && (
+        <Overlay title={"Gallery"} setOverlayOpen={setOverlayOpen}>
+          <Gallery data={data} context={context} />
+        </Overlay>
+      )}
+      <StyledOfferCard>
+        <ImageButton onClick={() => setOverlayOpen(true)}>
+          <ImageLoader name={data.img} width={imageWidth} />
+        </ImageButton>
+        <TagWrapper width={imageWidth}>
+          Tags:
+          {data.tags.map(tagName => (
+            <StyledTag key={tagName}>#{tagName}</StyledTag>
+          ))}
+        </TagWrapper>
+        <BuyWrapper>
+          <PrimaryButton
+            icon={CartImage}
+            onClick={() => addToCart(context, data)}
+          >
+            Add to cart
+          </PrimaryButton>
+          <StyledPrice>{data.price}$</StyledPrice>
+        </BuyWrapper>
+      </StyledOfferCard>
+    </>
   )
 }
 

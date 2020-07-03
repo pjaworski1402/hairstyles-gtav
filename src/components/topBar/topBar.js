@@ -1,31 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import LogoImage from "./LogoImage"
 import styled from "styled-components"
 
+import navs from "./navsRoutes"
 import burger from "../../assets/images/burger.svg"
-
-const navs = [
-  {
-    name: "for woman",
-    navTo: "/",
-  },
-  {
-    name: "for man",
-    navTo: "/",
-  },
-  {
-    name: "custom hair",
-    navTo: "/",
-  },
-  {
-    name: "instruction",
-    navTo: "/",
-  },
-  {
-    name: "contact",
-    navTo: "/",
-  },
-]
+import BurgerOverlay from "./BurgerOverlay"
 
 const TopBarWrapper = styled.nav`
   display: flex;
@@ -74,17 +53,21 @@ const BannerText = styled.span`
 `
 
 const TopBar = () => {
+  const [burgerOpen, setBurgerOpen] = useState(false)
   return (
-    <TopBarWrapper>
-      <LogoImage />
-      <BannerText>hairstyles-gta5</BannerText>
-      {navs.map(({ navTo, name }) => (
-        <StyledNavs key={name} href={navTo}>
-          {name}
-        </StyledNavs>
-      ))}
-      <Burger />
-    </TopBarWrapper>
+    <>
+      {burgerOpen && <BurgerOverlay closeBurger={setBurgerOpen} />}
+      <TopBarWrapper>
+        <LogoImage />
+        <BannerText>hairstyles-gta5</BannerText>
+        {navs.map(({ navTo, name }) => (
+          <StyledNavs key={name} href={navTo}>
+            {name}
+          </StyledNavs>
+        ))}
+        <Burger onClick={() => setBurgerOpen(!burgerOpen)} />
+      </TopBarWrapper>
+    </>
   )
 }
 

@@ -4,12 +4,14 @@ const offers = {
     {
       id: 1,
       img: "template.jpg",
+      gallery: ["template.jpg", "man.jpg"],
       tags: ["long", "woman"],
       price: 5,
     },
     {
       id: 2,
       img: "template.jpg",
+      gallery: ["template.jpg", "man.jpg"],
       tags: [
         "blond",
         "long",
@@ -27,24 +29,28 @@ const offers = {
     {
       id: 3,
       img: "man.jpg",
+      gallery: ["template.jpg", "man.jpg"],
       tags: ["blond", "short", "man"],
       price: 15,
     },
     {
       id: 4,
       img: "man.jpg",
+      gallery: ["template.jpg", "man.jpg"],
       tags: ["blond", "short", "man"],
       price: 15,
     },
     {
       id: 5,
       img: "man.jpg",
+      gallery: ["template.jpg", "man.jpg"],
       tags: ["blond", "short", "man"],
       price: 15,
     },
     {
       id: 6,
       img: "man.jpg",
+      gallery: ["template.jpg", "man.jpg"],
       tags: ["blond", "short", "man"],
       price: 15,
     },

@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react"
 import styled from "styled-components"
 
 import CartButtonImage from "../../assets/images/cartButton.svg"
-import { CartContext } from "../../context/cartContext"
+import { CartContext } from "../../context/globalContext"
 import Overlay from "../overlay/Overlay"
 import CartContent from "./CartContent"
 

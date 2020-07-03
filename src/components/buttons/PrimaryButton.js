@@ -3,13 +3,13 @@ import styled from "styled-components"
 
 const StyledButton = styled.button`
   background-color: #2753ff;
-  padding: 12px 20px;
+  padding: ${({ size }) => (size === "big" ? "16px 35px" : "12px 20px")};
   color: white;
   border: none;
   border-radius: 50px;
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: ${({ size }) => (size === "big" ? "16px" : "12px")};
   @media (min-width: 992px) {
     font-size: 18px;
     padding: 15px 25px;
@@ -25,10 +25,10 @@ const ButtonIcon = styled.img`
   }
 `
 
-const PrimaryButton = ({ children, icon, onClick }) => {
+const PrimaryButton = ({ children, icon, onClick, size }) => {
   return (
-    <StyledButton onClick={() => onClick()}>
-      <ButtonIcon src={icon} alt="" />
+    <StyledButton onClick={() => onClick()} size={size}>
+      {icon && <ButtonIcon src={icon} alt="" />}
       {children}
     </StyledButton>
   )

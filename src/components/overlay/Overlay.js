@@ -32,7 +32,7 @@ const OverlayWindow = styled.div`
 const OverlayTopWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   height: 15%;
 `
 
@@ -41,6 +41,7 @@ const OverlayTitle = styled.h1`
   font-weight: 100;
   font-size: 36px;
   text-transform: uppercase;
+  max-width: 80%;
 `
 
 const OverlayCloseButton = styled.button`

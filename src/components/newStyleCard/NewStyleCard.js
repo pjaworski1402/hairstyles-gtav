@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 
+import { YOSContext } from "../../context/globalContext"
 import Card from "./BackgroundSection"
 
 const StyledTitle = styled.h1`
@@ -35,6 +36,7 @@ const StyledButton = styled.button`
 `
 
 const NewStyleCard = () => {
+  const context = useContext(YOSContext)
   return (
     <Card>
       <StyledTitle>Didn't find your style?</StyledTitle>
@@ -43,7 +45,9 @@ const NewStyleCard = () => {
         you!
       </StyledText>
       <div style={{ textAlign: "center" }}>
-        <StyledButton>Order now!</StyledButton>
+        <StyledButton onClick={() => context.switchYOS(true)}>
+          Order now!
+        </StyledButton>
       </div>
     </Card>
   )

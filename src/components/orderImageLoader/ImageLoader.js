@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 const StyledImage = styled(Img)`
   width: ${({ width }) => width};
+  height: ${({ width }) => width};
   border-radius: 5px;
 `
 const ImageLoader = ({ name, width }) => (

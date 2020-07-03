@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import styled from "styled-components"
 import ImageLoader from "../orderImageLoader/ImageLoader"
 
-import { CartContext } from "../../context/cartContext"
+import { CartContext } from "../../context/globalContext"
 import deleteButton from "../../assets/images/deleteButton.svg"
 import BuyButton from "../buttons/PrimaryButton"
 import CartImage from "../../assets/images/cart.svg"
@@ -62,7 +62,6 @@ const Price = styled.span`
 
 const CartContent = () => {
   const cartContext = useContext(CartContext)
-  console.log(cartContext)
   return (
     <>
       <OrderCardWrapper>
@@ -76,7 +75,9 @@ const CartContent = () => {
       </OrderCardWrapper>
       <BuySection>
         <Price>Total price: 5$</Price>
-        <BuyButton icon={CartImage}>Buy now</BuyButton>
+        <BuyButton size="big" icon={CartImage}>
+          Buy now
+        </BuyButton>
       </BuySection>
     </>
   )
