@@ -19,7 +19,7 @@ const ImageLoader = ({ name, width }) => (
               relativePath
               name
               childImageSharp {
-                fluid(maxWidth: 250) {
+                fluid(maxWidth: 500) {
                   ...GatsbyImageSharpFluid
                 }
               }

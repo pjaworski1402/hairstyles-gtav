@@ -22,8 +22,8 @@ const BackgroundSection = ({ children }) => (
         <BackgroundImage
           Tag="section"
           fluid={imageData}
-          backgroundColor={`#040e18`}
-          style={{ backgroundPosition: "top left" }}
+          backgroundColor={`white`}
+          style={{ backgroundPosition: "0% 20%" }}
         >
           {children}
         </BackgroundImage>

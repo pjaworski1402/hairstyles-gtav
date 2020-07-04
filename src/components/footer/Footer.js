@@ -10,7 +10,11 @@ const FooterWraper = styled.footer`
   justify-content: space-between;
   position: relative;
 `
-const InstagramIcon = styled.img`
+const Instagram = styled.a`
+background-image: url(${InstaIco});
+background-size: contain;
+background-position:center;
+background-repeat:no-repeat;
   width: 30px;
 `
 const FooterHeader = styled.h1`
@@ -27,7 +31,7 @@ const Author = styled.div`
 const Footer = () => {
   return (
     <FooterWraper>
-      <InstagramIcon src={InstaIco} alt="instagram" />
+      <Instagram target="_blank" href="https://www.instagram.com/hairstyles_gta_v/" />
       <FooterHeader>hairstyles-gta5</FooterHeader>
       <Author>Site created by Piotr Jaworski</Author>
       <div style={{ width: "30px" }} />
