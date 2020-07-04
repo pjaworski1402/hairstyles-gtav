@@ -62,6 +62,10 @@ const Price = styled.span`
 
 const CartContent = () => {
   const cartContext = useContext(CartContext)
+  let totalPrice = 0
+  cartContext.state.forEach(order => {
+    totalPrice += order.price
+  })
   return (
     <>
       <OrderCardWrapper>
@@ -74,7 +78,7 @@ const CartContent = () => {
         ))}
       </OrderCardWrapper>
       <BuySection>
-        <Price>Total price: 5$</Price>
+        <Price>Total price: {totalPrice}$</Price>
         <BuyButton size="big" icon={CartImage}>
           Buy now
         </BuyButton>
