@@ -1,7 +1,8 @@
 import React, { createContext, useReducer } from "react"
 import cartReducers from "./cartReducers"
 import YOSReducers from "./YOSReducers"
-import { ADD_ORDER, REMOVE_ORDER, SWITCH_YOS } from "./types"
+import SearchReducers from "./SearchReducers"
+import { ADD_ORDER, REMOVE_ORDER, SWITCH_YOS, SEARCH } from "./types"
 
 export const CartContext = createContext({
   orders: [],
@@ -20,6 +21,13 @@ export const YOSContext = createContext({
   },
 })
 
+export const SearchContext = createContext({
+  search: "",
+  setSearch: () => {
+    console.log("setSearch")
+  },
+})
+
 const initialState = {
   orders: [],
 }
@@ -28,9 +36,17 @@ const initialYOSState = {
   YOS: false,
 }
 
+const initialSearchState = {
+  search: "",
+}
+
 export const GlobalStateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducers, initialState)
   const [YOSstate, YOSdispatch] = useReducer(YOSReducers, initialYOSState)
+  const [searchState, searchDispatch] = useReducer(
+    SearchReducers,
+    initialSearchState
+  )
 
   const addOrder = order => {
     dispatch({
@@ -51,13 +67,24 @@ export const GlobalStateProvider = ({ children }) => {
     })
   }
 
+  const setSearch = text => {
+    searchDispatch({
+      type: SEARCH,
+      payload: text,
+    })
+  }
+
   return (
-    <CartContext.Provider
-      value={{ state: state.orders, addOrder, removeOrder }}
+    <SearchContext.Provider
+      value={{ searchState: searchState.search, setSearch }}
     >
-      <YOSContext.Provider value={{ stateYOS: YOSstate.YOS, switchYOS }}>
-        {children}
-      </YOSContext.Provider>
-    </CartContext.Provider>
+      <CartContext.Provider
+        value={{ state: state.orders, addOrder, removeOrder }}
+      >
+        <YOSContext.Provider value={{ stateYOS: YOSstate.YOS, switchYOS }}>
+          {children}
+        </YOSContext.Provider>
+      </CartContext.Provider>
+    </SearchContext.Provider>
   )
 }

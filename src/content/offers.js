@@ -57,7 +57,7 @@ const offers = {
     {
       id: 7,
       img: "man.jpg",
-      tags: ["blond", "short", "man"],
+      tags: ["blond", "short", "man", "kama"],
       price: 15,
     },
     {

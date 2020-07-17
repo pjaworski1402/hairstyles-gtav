@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { FileDrop } from "react-file-drop"
 import doneGif from "../../assets/images/done.gif"
 import images from "../../assets/images/images.svg"
+import EmailInput from "../inputs/PrimaryInput"
 
 const StageTitle = styled.h2`
   font-size: 24px;
@@ -31,18 +32,7 @@ const UploadImage = styled(FileDrop)`
     justify-content: space-evenly;
   }
 `
-const EmailInput = styled.input`
-  position: relative;
-  width: 100%;
-  margin: auto;
-  border: 1px solid black;
-  border-radius: 20px;
-  font-size: 24px;
-  font-family: roboto, sans-serif;
-  font-weight: 100;
-  text-align: center;
-  padding: 5px;
-`
+
 const EmailText = styled.span`
   text-align: center;
   font-weight: 100;
