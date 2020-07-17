@@ -1,11 +1,11 @@
 const navs = [
   {
     name: "for woman",
-    navTo: "/",
+    navTo: "#woman",
   },
   {
     name: "for man",
-    navTo: "/",
+    navTo: "#man",
   },
   {
     name: "custom hair",

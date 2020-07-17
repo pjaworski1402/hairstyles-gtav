@@ -6,6 +6,14 @@ import navs from "./navsRoutes"
 import burger from "../../assets/images/burger.svg"
 import BurgerOverlay from "./BurgerOverlay"
 
+const Logo = styled.a`
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+`
+
 const TopBarWrapper = styled.nav`
   display: flex;
   align-items: center;
@@ -45,10 +53,9 @@ const StyledNavs = styled.a`
   }
 `
 
-const BannerText = styled.span`
+const LogoText = styled.span`
   font-size: 20px;
   font-family: "Offside", cursive;
-  margin-right: auto;
   margin-left: 20px;
 `
 
@@ -58,8 +65,10 @@ const TopBar = () => {
     <>
       {burgerOpen && <BurgerOverlay closeBurger={setBurgerOpen} />}
       <TopBarWrapper>
-        <LogoImage />
-        <BannerText>hairstyles-gta5</BannerText>
+        <Logo href="/">
+          <LogoImage />
+          <LogoText>hairstyles-gta5</LogoText>
+        </Logo>
         {navs.map(({ navTo, name }) => (
           <StyledNavs key={name} href={navTo}>
             {name}

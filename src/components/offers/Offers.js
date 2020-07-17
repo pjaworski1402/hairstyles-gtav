@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import { Location } from "@reach/router"
 import styled from "styled-components"
 
 import Title from "../title/Title"
@@ -14,22 +15,113 @@ const StyledOffersList = styled.section`
   align-items: flex-start;
 `
 
-const DefaultSearch = () => {
+const ShowMoreButton = styled.button`
+  width: 100%;
+  margin: 25px 0;
+  background-color: transparent;
+  color: #2753ff;
+  font-weight: 700;
+  font-size: 24px;
+  border: none;
+  @media (min-width: 992px) {
+    margin: 40px 0;
+  }
+`
+
+const ArrowDown = styled.i`
+  border: solid #27539f;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  margin: 5px 10px;
+`
+
+const ForWoman = ({ showAllStatus, handleShowMoreButton }) => {
+  const onlyWoman = window.location.hash === "#woman"
   return (
     <>
       <Title>for woman</Title>
-      <StyledOffersList>
-        {OffersJS.offersWoman.map(data => (
-          <OfferCard key={data.id} data={data} />
-        ))}
-        <NewStyleCard />
-        <Title>for man</Title>
-        {OffersJS.offersMan.map(data => (
-          <OfferCard key={data.id} data={data} />
-        ))}
-        <NewStyleCard />
-      </StyledOffersList>
+      {OffersJS.offersWoman.slice(0, showAllStatus).map(data => (
+        <OfferCard key={data.id} data={data} />
+      ))}
+      <ShowMoreButton
+        onClick={() => handleShowMoreButton("woman")}
+        style={{ display: onlyWoman ? "none" : "block" }}
+      >
+        Show all woman offers
+        <ArrowDown />
+      </ShowMoreButton>
+      <NewStyleCard />
     </>
+  )
+}
+
+const ForMan = ({ showAllStatus, handleShowMoreButton }) => {
+  const onlyMan = window.location.hash === "#man"
+  return (
+    <>
+      <Title>for man</Title>
+      {OffersJS.offersMan.slice(0, showAllStatus).map(data => (
+        <OfferCard key={data.id} data={data} />
+      ))}
+      <ShowMoreButton
+        onClick={() => handleShowMoreButton("man")}
+        style={{ display: onlyMan ? "none" : "block" }}
+      >
+        Show all man offers
+        <ArrowDown />
+      </ShowMoreButton>
+      <NewStyleCard />
+    </>
+  )
+}
+
+const DefaultSearch = () => {
+  const handleShowMoreButton = sex => {
+    window.location.hash = sex
+  }
+
+  return (
+    <StyledOffersList>
+      <Location>
+        {({ location }) => {
+          const Render = () => {
+            switch (location.hash) {
+              case "#woman":
+                return (
+                  <ForWoman
+                    showAllStatus={OffersJS.offersWoman.length}
+                    handleShowMoreButton={handleShowMoreButton}
+                  />
+                )
+              case "#man":
+                return (
+                  <ForMan
+                    showAllStatus={OffersJS.offersMan.length}
+                    handleShowMoreButton={handleShowMoreButton}
+                  />
+                )
+
+              default:
+                return (
+                  <>
+                    <ForWoman
+                      showAllStatus={3}
+                      handleShowMoreButton={handleShowMoreButton}
+                    />
+                    <ForMan
+                      showAllStatus={3}
+                      handleShowMoreButton={handleShowMoreButton}
+                    />
+                  </>
+                )
+            }
+          }
+          return <Render />
+        }}
+      </Location>
+    </StyledOffersList>
   )
 }
 
