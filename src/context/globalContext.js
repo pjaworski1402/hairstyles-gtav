@@ -29,7 +29,7 @@ export const SearchContext = createContext({
 })
 
 const initialState = {
-  orders: [],
+  orders: JSON.parse(localStorage.getItem("orders")).orders,
 }
 
 const initialYOSState = {

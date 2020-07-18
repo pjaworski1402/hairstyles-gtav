@@ -1,22 +1,26 @@
+const test = window.location.hash
 const navs = [
   {
     name: "for woman",
-    navTo: "#woman",
+    navTo: "?sex=woman",
   },
   {
     name: "for man",
-    navTo: "#man",
+    navTo: "?sex=man",
   },
   {
     name: "custom hair",
-    navTo: "/",
+    type: "button",
+    onClick: "yos",
   },
   {
     name: "instruction",
+    type: "button",
     navTo: "/",
   },
   {
     name: "contact",
+    type: "button",
     navTo: "/",
   },
 ]

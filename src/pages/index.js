@@ -16,6 +16,9 @@ body{
 *, *::before, *::after{
   box-sizing:border-box;
 }
+button{
+  font-family: Open Sans, 'sans-serif'
+}
 button:hover{
   cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { Location } from "@reach/router"
 import styled from "styled-components"
+import queryString from "query-string"
 
 import Title from "../title/Title"
 import OffersJS from "../../content/offers.js"
@@ -38,7 +39,7 @@ const ArrowDown = styled.i`
 `
 
 const ForWoman = ({ showAllStatus, handleShowMoreButton }) => {
-  const onlyWoman = window.location.hash === "#woman"
+  const onlyWoman = queryString.parse(window.location.search).sex === "woman"
   return (
     <>
       <Title>for woman</Title>
@@ -58,7 +59,7 @@ const ForWoman = ({ showAllStatus, handleShowMoreButton }) => {
 }
 
 const ForMan = ({ showAllStatus, handleShowMoreButton }) => {
-  const onlyMan = window.location.hash === "#man"
+  const onlyMan = queryString.parse(window.location.search).sex === "man"
   return (
     <>
       <Title>for man</Title>
@@ -79,23 +80,23 @@ const ForMan = ({ showAllStatus, handleShowMoreButton }) => {
 
 const DefaultSearch = () => {
   const handleShowMoreButton = sex => {
-    window.location.hash = sex
+    window.location.search = `sex=${sex}`
   }
-
   return (
     <StyledOffersList>
       <Location>
         {({ location }) => {
+          const { sex } = queryString.parse(location.search)
           const Render = () => {
-            switch (location.hash) {
-              case "#woman":
+            switch (sex) {
+              case "woman":
                 return (
                   <ForWoman
                     showAllStatus={OffersJS.offersWoman.length}
                     handleShowMoreButton={handleShowMoreButton}
                   />
                 )
-              case "#man":
+              case "man":
                 return (
                   <ForMan
                     showAllStatus={OffersJS.offersMan.length}

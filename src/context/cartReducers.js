@@ -2,10 +2,12 @@ import { ADD_ORDER, REMOVE_ORDER } from "./types"
 
 const addOrder = (order, state) => {
   const newOrders = [...state.orders, order]
-  return {
+  const changedOrders = {
     ...state,
     orders: newOrders,
   }
+  localStorage.setItem("orders", JSON.stringify(changedOrders))
+  return changedOrders
 }
 
 const removeOrder = (id, state) => {
@@ -14,10 +16,12 @@ const removeOrder = (id, state) => {
   if (index > -1) {
     orders.splice(index, 1)
   }
-  return {
+  const changedOrders = {
     ...state,
     orders: orders,
   }
+  localStorage.setItem("orders", JSON.stringify(changedOrders))
+  return changedOrders
 }
 
 const reducers = (state, action) => {

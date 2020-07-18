@@ -53,6 +53,21 @@ const StyledNavs = styled.a`
   }
 `
 
+const StyledNavsButtons = styled.button`
+  background-color: transparent;
+  border: none;
+  display: none;
+  text-transform: uppercase;
+  color: black;
+  font-weight: 100;
+  font-size: 20px;
+  margin-left: 5%;
+  text-decoration: none;
+  @media (min-width: 992px) {
+    display: block;
+  }
+`
+
 const LogoText = styled.span`
   font-size: 20px;
   font-family: "Offside", cursive;
@@ -69,11 +84,21 @@ const TopBar = () => {
           <LogoImage />
           <LogoText>hairstyles-gta5</LogoText>
         </Logo>
-        {navs.map(({ navTo, name }) => (
-          <StyledNavs key={name} href={navTo}>
-            {name}
-          </StyledNavs>
-        ))}
+        {navs.map(({ navTo, name, type }) => {
+          if (type === "button") {
+            return (
+              <StyledNavsButtons key={name} onClick={navTo}>
+                {name}
+              </StyledNavsButtons>
+            )
+          } else {
+            return (
+              <StyledNavs key={name} href={navTo}>
+                {name}
+              </StyledNavs>
+            )
+          }
+        })}
         <Burger onClick={() => setBurgerOpen(!burgerOpen)} />
       </TopBarWrapper>
     </>
