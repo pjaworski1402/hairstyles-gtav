@@ -1,4 +1,3 @@
-const test = window.location.hash
 const navs = [
   {
     name: "for woman",

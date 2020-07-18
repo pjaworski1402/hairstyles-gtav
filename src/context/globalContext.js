@@ -27,9 +27,11 @@ export const SearchContext = createContext({
     console.log("setSearch")
   },
 })
-
-const initialState = {
-  orders: JSON.parse(localStorage.getItem("orders")).orders,
+let initialState = { orders: [] }
+if (typeof localStorage !== `undefined`) {
+  initialState = {
+    orders: JSON.parse(localStorage.getItem("orders")).orders,
+  }
 }
 
 const initialYOSState = {

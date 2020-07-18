@@ -6,7 +6,8 @@ const addOrder = (order, state) => {
     ...state,
     orders: newOrders,
   }
-  localStorage.setItem("orders", JSON.stringify(changedOrders))
+  if (typeof localStorage !== `undefined`)
+    localStorage.setItem("orders", JSON.stringify(changedOrders))
   return changedOrders
 }
 
@@ -20,7 +21,9 @@ const removeOrder = (id, state) => {
     ...state,
     orders: orders,
   }
-  localStorage.setItem("orders", JSON.stringify(changedOrders))
+  if (typeof localStorage !== `undefined`) {
+    localStorage.setItem("orders", JSON.stringify(changedOrders))
+  }
   return changedOrders
 }
 
