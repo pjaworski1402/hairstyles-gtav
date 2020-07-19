@@ -1,4 +1,5 @@
 import React from "react"
+import { Location } from "@reach/router"
 import { createGlobalStyle } from "styled-components"
 
 import Layout from "../components/layout"
@@ -6,6 +7,11 @@ import SEO from "../components/seo"
 import Banner from "../components/topBanner/topBanner"
 import Offers from "../components/offers/Offers"
 import Search from "../components/search/Search"
+import queryString from "query-string"
+import Contact from "../components/contact/Contact"
+import YOS from "../components/yourOwnStyle/YourOwnStyle"
+import { Cart } from "../components/cartButton/CartButton"
+import BurgerOverlay from "../components/topBar/BurgerOverlay"
 
 const GlobalStyle = createGlobalStyle`
 body{
@@ -29,6 +35,23 @@ const IndexPage = () => {
     <>
       <GlobalStyle />
       <Layout>
+        <Location>
+          {({ location }) => {
+            const openOverlay = queryString.parse(location.search).overlay
+            switch (openOverlay) {
+              case "contact":
+                return <Contact />
+              case "yos":
+                return <YOS />
+              case "cart":
+                return <Cart />
+              case "burger":
+                return <BurgerOverlay />
+              default:
+                break
+            }
+          }}
+        </Location>
         <SEO title="Home" />
         <Banner />
         <Search />

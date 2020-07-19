@@ -24,9 +24,9 @@ const StyledNavs = styled.a`
   padding: 20px 0;
 `
 
-const BurgerOverlay = ({ closeBurger }) => {
+const BurgerOverlay = () => {
   return (
-    <Overlay title={"menu"} setOverlayOpen={closeBurger}>
+    <Overlay title={"menu"}>
       <NavsWrapper>
         {navs.map(({ navTo, name }) => (
           <StyledNavs key={name} href={navTo}>

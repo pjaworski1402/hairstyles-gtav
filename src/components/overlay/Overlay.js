@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
+import { removeQueryFromLink } from "../../helper/linkController"
 import overlayClose from "../../assets/images/overlayClose.svg"
 
 const OverlayBackground = styled.div`
@@ -44,7 +46,7 @@ const OverlayTitle = styled.h1`
   max-width: 80%;
 `
 
-const OverlayCloseButton = styled.button`
+const OverlayCloseButton = styled(Link)`
   width: 30px;
   height: 30px;
   background-color: transparent;
@@ -59,13 +61,13 @@ const OverlayContent = styled.div`
   height: 85%;
 `
 
-const Overlay = ({ title, children, setOverlayOpen }) => {
+const Overlay = ({ title, children }) => {
   return (
     <OverlayBackground>
       <OverlayWindow>
         <OverlayTopWrapper>
           <OverlayTitle>{title}</OverlayTitle>
-          <OverlayCloseButton onClick={() => setOverlayOpen(false)} />
+          <OverlayCloseButton to={removeQueryFromLink("overlay")} />
         </OverlayTopWrapper>
         <OverlayContent>{children}</OverlayContent>
       </OverlayWindow>

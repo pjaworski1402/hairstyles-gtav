@@ -1,8 +1,9 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
-import { YOSContext } from "../../context/globalContext"
 import Card from "./BackgroundSection"
+import { addQueryToLink } from "../../helper/linkController"
 
 const StyledTitle = styled.h1`
   color: white;
@@ -21,12 +22,16 @@ const StyledText = styled.div`
   }
 `
 
-const StyledButton = styled.button`
+const StyledButton = styled(Link)`
+  display: block;
+  width: 250px;
+  color: black;
+  text-decoration: none;
   border: 1px solid black;
   border-radius: 5px;
   background-color: #f1f1f1;
   padding: 10px 15px;
-  margin: 20px;
+  margin: 20px auto;
   font-size: 16px;
   font-weight: 600;
   @media (min-width: 992px) {
@@ -36,7 +41,6 @@ const StyledButton = styled.button`
 `
 
 const NewStyleCard = () => {
-  const context = useContext(YOSContext)
   return (
     <Card>
       <StyledTitle>Didn't find your style?</StyledTitle>
@@ -45,7 +49,7 @@ const NewStyleCard = () => {
         you!
       </StyledText>
       <div style={{ textAlign: "center" }}>
-        <StyledButton onClick={() => context.switchYOS(true)}>
+        <StyledButton to={addQueryToLink(`?overlay=yos`)}>
           Order now!
         </StyledButton>
       </div>

@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import { Link } from "gatsby"
 import { Location } from "@reach/router"
 import styled from "styled-components"
 import queryString from "query-string"
@@ -8,6 +9,7 @@ import OffersJS from "../../content/offers.js"
 import OfferCard from "../offerCard/OfferCard"
 import NewStyleCard from "../newStyleCard/NewStyleCard"
 import { SearchContext } from "../../context/globalContext"
+import { addQueryToLink } from "../../helper/linkController"
 
 const StyledOffersList = styled.section`
   display: flex;
@@ -16,8 +18,10 @@ const StyledOffersList = styled.section`
   align-items: flex-start;
 `
 
-const ShowMoreButton = styled.button`
+const ShowMoreButton = styled(Link)`
+  text-decoration: none;
   width: 100%;
+  text-align: center;
   margin: 25px 0;
   background-color: transparent;
   color: #2753ff;
@@ -38,7 +42,7 @@ const ArrowDown = styled.i`
   margin: 5px 10px;
 `
 
-const ForWoman = ({ showAllStatus, handleShowMoreButton }) => {
+const ForWoman = ({ showAllStatus }) => {
   const onlyWoman = queryString.parse(window.location.search).sex === "woman"
   return (
     <>
@@ -47,7 +51,7 @@ const ForWoman = ({ showAllStatus, handleShowMoreButton }) => {
         <OfferCard key={data.id} data={data} />
       ))}
       <ShowMoreButton
-        onClick={() => handleShowMoreButton("woman")}
+        to={addQueryToLink(`?sex=woman`)}
         style={{ display: onlyWoman ? "none" : "block" }}
       >
         Show all woman offers
@@ -58,7 +62,7 @@ const ForWoman = ({ showAllStatus, handleShowMoreButton }) => {
   )
 }
 
-const ForMan = ({ showAllStatus, handleShowMoreButton }) => {
+const ForMan = ({ showAllStatus }) => {
   const onlyMan = queryString.parse(window.location.search).sex === "man"
   return (
     <>
@@ -67,7 +71,7 @@ const ForMan = ({ showAllStatus, handleShowMoreButton }) => {
         <OfferCard key={data.id} data={data} />
       ))}
       <ShowMoreButton
-        onClick={() => handleShowMoreButton("man")}
+        to={addQueryToLink(`?sex=man`)}
         style={{ display: onlyMan ? "none" : "block" }}
       >
         Show all man offers
@@ -79,9 +83,6 @@ const ForMan = ({ showAllStatus, handleShowMoreButton }) => {
 }
 
 const DefaultSearch = () => {
-  const handleShowMoreButton = sex => {
-    window.location.search = `sex=${sex}`
-  }
   return (
     <StyledOffersList>
       <Location>
@@ -90,31 +91,15 @@ const DefaultSearch = () => {
           const Render = () => {
             switch (sex) {
               case "woman":
-                return (
-                  <ForWoman
-                    showAllStatus={OffersJS.offersWoman.length}
-                    handleShowMoreButton={handleShowMoreButton}
-                  />
-                )
+                return <ForWoman showAllStatus={OffersJS.offersWoman.length} />
               case "man":
-                return (
-                  <ForMan
-                    showAllStatus={OffersJS.offersMan.length}
-                    handleShowMoreButton={handleShowMoreButton}
-                  />
-                )
+                return <ForMan showAllStatus={OffersJS.offersMan.length} />
 
               default:
                 return (
                   <>
-                    <ForWoman
-                      showAllStatus={3}
-                      handleShowMoreButton={handleShowMoreButton}
-                    />
-                    <ForMan
-                      showAllStatus={3}
-                      handleShowMoreButton={handleShowMoreButton}
-                    />
+                    <ForWoman showAllStatus={3} />
+                    <ForMan showAllStatus={3} />
                   </>
                 )
             }

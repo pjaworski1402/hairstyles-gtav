@@ -1,8 +1,7 @@
 import React, { createContext, useReducer } from "react"
 import cartReducers from "./cartReducers"
-import YOSReducers from "./YOSReducers"
 import SearchReducers from "./SearchReducers"
-import { ADD_ORDER, REMOVE_ORDER, SWITCH_YOS, SEARCH } from "./types"
+import { ADD_ORDER, REMOVE_ORDER, SEARCH } from "./types"
 
 export const CartContext = createContext({
   orders: [],
@@ -14,13 +13,6 @@ export const CartContext = createContext({
   },
 })
 
-export const YOSContext = createContext({
-  YOS: false,
-  switchYOS: () => {
-    console.log("removeOrder")
-  },
-})
-
 export const SearchContext = createContext({
   search: "",
   setSearch: () => {
@@ -28,14 +20,17 @@ export const SearchContext = createContext({
   },
 })
 let initialState = { orders: [] }
-if (typeof localStorage !== `undefined`) {
+if (
+  typeof localStorage !== `undefined` &&
+  JSON.parse(localStorage.getItem("orders"))
+) {
   initialState = {
     orders: JSON.parse(localStorage.getItem("orders")).orders,
   }
-}
-
-const initialYOSState = {
-  YOS: false,
+} else {
+  initialState = {
+    orders: [],
+  }
 }
 
 const initialSearchState = {
@@ -44,7 +39,6 @@ const initialSearchState = {
 
 export const GlobalStateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducers, initialState)
-  const [YOSstate, YOSdispatch] = useReducer(YOSReducers, initialYOSState)
   const [searchState, searchDispatch] = useReducer(
     SearchReducers,
     initialSearchState
@@ -62,12 +56,6 @@ export const GlobalStateProvider = ({ children }) => {
       payload: order,
     })
   }
-  const switchYOS = status => {
-    YOSdispatch({
-      type: SWITCH_YOS,
-      payload: status,
-    })
-  }
 
   const setSearch = text => {
     searchDispatch({
@@ -83,9 +71,7 @@ export const GlobalStateProvider = ({ children }) => {
       <CartContext.Provider
         value={{ state: state.orders, addOrder, removeOrder }}
       >
-        <YOSContext.Provider value={{ stateYOS: YOSstate.YOS, switchYOS }}>
-          {children}
-        </YOSContext.Provider>
+        {children}
       </CartContext.Provider>
     </SearchContext.Provider>
   )

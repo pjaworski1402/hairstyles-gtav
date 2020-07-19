@@ -1,10 +1,11 @@
-import React, { useState } from "react"
+import React from "react"
 import LogoImage from "./LogoImage"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
+import { addQueryToLink } from "../../helper/linkController"
 import navs from "./navsRoutes"
 import burger from "../../assets/images/burger.svg"
-import BurgerOverlay from "./BurgerOverlay"
 
 const Logo = styled.a`
   text-decoration: none;
@@ -25,7 +26,7 @@ const TopBarWrapper = styled.nav`
   background-color: #fff;
   width: 100%;
 `
-const Burger = styled.button`
+const Burger = styled(Link)`
   width: 25px;
   height: 15px;
   background-image: url(${burger});
@@ -40,22 +41,7 @@ const Burger = styled.button`
     display: none;
   }
 `
-const StyledNavs = styled.a`
-  display: none;
-  text-transform: uppercase;
-  color: black;
-  font-weight: 100;
-  font-size: 20px;
-  margin-left: 5%;
-  text-decoration: none;
-  @media (min-width: 992px) {
-    display: block;
-  }
-`
-
-const StyledNavsButtons = styled.button`
-  background-color: transparent;
-  border: none;
+const StyledNavs = styled(Link)`
   display: none;
   text-transform: uppercase;
   color: black;
@@ -75,31 +61,21 @@ const LogoText = styled.span`
 `
 
 const TopBar = () => {
-  const [burgerOpen, setBurgerOpen] = useState(false)
   return (
     <>
-      {burgerOpen && <BurgerOverlay closeBurger={setBurgerOpen} />}
       <TopBarWrapper>
         <Logo href="/">
           <LogoImage />
           <LogoText>hairstyles-gta5</LogoText>
         </Logo>
-        {navs.map(({ navTo, name, type }) => {
-          if (type === "button") {
-            return (
-              <StyledNavsButtons key={name} onClick={navTo}>
-                {name}
-              </StyledNavsButtons>
-            )
-          } else {
-            return (
-              <StyledNavs key={name} href={navTo}>
-                {name}
-              </StyledNavs>
-            )
-          }
+        {navs.map(({ navTo, name }) => {
+          return (
+            <StyledNavs key={name} to={addQueryToLink(navTo)}>
+              {name}
+            </StyledNavs>
+          )
         })}
-        <Burger onClick={() => setBurgerOpen(!burgerOpen)} />
+        <Burger to={addQueryToLink(`?overlay=burger`)} />
       </TopBarWrapper>
     </>
   )

@@ -1,12 +1,14 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
 
 import CartButtonImage from "../../assets/images/cartButton.svg"
 import { CartContext } from "../../context/globalContext"
 import Overlay from "../overlay/Overlay"
 import CartContent from "./CartContent"
+import { addQueryToLink } from "../../helper/linkController"
 
-const CartWrapper = styled.button`
+const CartWrapper = styled(Link)`
   position: fixed;
   z-index: 1;
   bottom: 3%;
@@ -35,23 +37,21 @@ const CartCounter = styled.div`
 `
 
 const CartButton = () => {
-  const [overlayOpen, setOverlayOpen] = useState(false)
   const cartContext = useContext(CartContext)
   return (
-    <>
-      {overlayOpen && (
-        <Overlay title={"Cart"} setOverlayOpen={setOverlayOpen}>
-          <CartContent />
-        </Overlay>
-      )}
-      <CartWrapper
-        img={CartButtonImage}
-        onClick={() => setOverlayOpen(!overlayOpen)}
-      >
-        <CartCounter>{cartContext.state.length}</CartCounter>
-      </CartWrapper>
-    </>
+    <CartWrapper img={CartButtonImage} to={addQueryToLink(`?overlay=cart`)}>
+      <CartCounter>{cartContext.state.length}</CartCounter>
+    </CartWrapper>
+  )
+}
+
+const Cart = () => {
+  return (
+    <Overlay title={"Cart"}>
+      <CartContent />
+    </Overlay>
   )
 }
 
 export default CartButton
+export { Cart }

@@ -9,18 +9,15 @@ const navs = [
   },
   {
     name: "custom hair",
-    type: "button",
-    onClick: "yos",
+    navTo: "?overlay=yos",
   },
   {
     name: "instruction",
-    type: "button",
-    navTo: "/",
+    navTo: "?overlay=instruction",
   },
   {
     name: "contact",
-    type: "button",
-    navTo: "/",
+    navTo: "?overlay=contact",
   },
 ]
 export default navs

@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
 import { StageOne, StageTwo, StageThree } from "./Stages"
-import { YOSContext } from "../../context/globalContext"
 import Overlay from "../overlay/Overlay"
 import NextButton from "../buttons/PrimaryButton"
 
@@ -32,7 +31,6 @@ const ProgressCircle = styled.div`
 `
 
 const YourOwnStyle = () => {
-  const context = useContext(YOSContext)
   const [file, setFile] = useState("")
   const [email, setEmail] = useState("")
   const [stage, setStage] = useState(1)
@@ -40,7 +38,7 @@ const YourOwnStyle = () => {
   const renderProgressDots = () => {
     let dots = []
     for (let i = 1; i <= numberOfStages; i++) {
-      dots.push(<ProgressCircle black={i === stage} />)
+      dots.push(<ProgressCircle key={i} black={i === stage} />)
     }
     return dots
   }
@@ -49,13 +47,11 @@ const YourOwnStyle = () => {
     <StageTwo setEmail={setEmail} />,
     <StageThree />,
   ]
-  stage > numberOfStages && context.switchYOS(false)
+  // Close overlay when stages is end
+  // stage > numberOfStages && context.switchYOS(false)
 
   return (
-    <Overlay
-      title="your own style"
-      setOverlayOpen={() => context.switchYOS(false)}
-    >
+    <Overlay title="your own style">
       <FormWrapper>
         {stages[stage - 1]}
         <StageProgressWrapper>

@@ -14,19 +14,20 @@ const Input = styled.input`
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "24px")};
   font-family: roboto, sans-serif;
   font-weight: 100;
-  text-align: center;
+  text-align: ${({ align }) => (align ? align : "center")};
   padding: 5px;
   border: none;
   border-radius: 20px;
 `
 
-const PrimaryInput = ({ placeholder, onChange, width, fontSize }) => {
+const PrimaryInput = ({ placeholder, onChange, width, fontSize, align }) => {
   return (
     <Label width={width}>
       <Input
         placeholder={placeholder}
         onChange={onChange}
         fontSize={fontSize}
+        align={align}
       />
     </Label>
   )
