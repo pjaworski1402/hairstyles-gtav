@@ -29,6 +29,11 @@ const StyledInstagramIco = styled.img`
   width: 35px;
 `
 
+const StyledLink = styled.a`
+  text-decoration: none;
+  color: black;
+`
+
 const StyledLine = styled.li`
   list-style: none;
   height: 1px;
@@ -49,10 +54,12 @@ const Contact = () => {
         <ContactData>
           E-mail:&nbsp;<b>xyz@gmail.com</b>
         </ContactData>
-        <ContactData>
-          Instagram&nbsp;
-          <StyledInstagramIco src={instaIco} />
-        </ContactData>
+        <StyledLink href="https://www.instagram.com/hairstyles_gta_v/">
+          <ContactData>
+            Instagram&nbsp;
+            <StyledInstagramIco src={instaIco} />
+          </ContactData>
+        </StyledLink>
         <StyledLine />
         <ContactData>Send me question here:</ContactData>
         <ContactData>

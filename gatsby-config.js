@@ -1,7 +1,8 @@
 module.exports = {
+  pathPrefix: `/hairstyles-gtav`,
   siteMetadata: {
     title: `Hairstyles GTA V - create your own hairstyle`,
-    description: `Are you looking for hair for your GTA V character? Here you will find all hair types for men and women. If you haven't found your hair, you can also upload a photo of your hairstyle you are looking for.`,
+    description: `Are you looking for hair for your GTA V character? Here you will find all hair types for men and women. If you haven't found yet your hair, you can upload a photo of hairstyle you are looking for.`,
     author: `Piotr Jaworski`,
   },
   plugins: [

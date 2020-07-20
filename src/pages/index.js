@@ -54,7 +54,8 @@ const IndexPage = () => {
         </Location>
         <SEO title="Home" />
         <Banner />
-        <Search />
+        {/* Search doesn't work yet */}
+        {/* <Search /> */}
         <Offers />
       </Layout>
     </>

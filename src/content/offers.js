@@ -35,8 +35,8 @@ const offers = {
     },
     {
       id: 4,
-      img: "man.jpg",
-      gallery: ["template.jpg", "man.jpg"],
+      img: "man2front.jpg",
+      gallery: ["man2profil.jpg", "man2profil2.jpg", "man2back.jpg"],
       tags: ["blond", "short", "man"],
       price: 15,
     },

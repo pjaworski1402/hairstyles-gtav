@@ -32,8 +32,8 @@ const TopBanner = () => {
         <Title>Create your dream style</Title>
         <Text>
           Have you been looking for hair for your GTA V character? Here you will
-          find all hair types for men and women. If you haven't found your hair,
-          you can also upload a photo of your hairstyle you are looking for.
+          find all hair types for men and women. If you haven't found yet your
+          hair, you can upload a photo of hairstyle you are looking for.
         </Text>
       </BackgroundSection>
     </>

@@ -11,6 +11,8 @@ import NewStyleCard from "../newStyleCard/NewStyleCard"
 import { SearchContext } from "../../context/globalContext"
 import { addQueryToLink } from "../../helper/linkController"
 
+const isBrowser = typeof window !== `undefined`
+
 const StyledOffersList = styled.section`
   display: flex;
   flex-wrap: wrap;
@@ -43,7 +45,9 @@ const ArrowDown = styled.i`
 `
 
 const ForWoman = ({ showAllStatus }) => {
-  const onlyWoman = queryString.parse(window.location.search).sex === "woman"
+  const onlyWoman = isBrowser
+    ? queryString.parse(window.location.search).sex === "woman"
+    : null
   return (
     <>
       <Title>for woman</Title>
@@ -63,7 +67,9 @@ const ForWoman = ({ showAllStatus }) => {
 }
 
 const ForMan = ({ showAllStatus }) => {
-  const onlyMan = queryString.parse(window.location.search).sex === "man"
+  const onlyMan = isBrowser
+    ? queryString.parse(window.location.search).sex === "man"
+    : null
   return (
     <>
       <Title>for man</Title>

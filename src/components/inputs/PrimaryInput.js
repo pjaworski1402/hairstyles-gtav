@@ -9,13 +9,15 @@ const Label = styled.label`
 `
 
 const Input = styled.input`
-  width: 95%;
-  margin-left: 5%;
+  /* width: 95%; */
+  /* margin-left: 5%; */
+  /* padding: 5px; */
+  width: 100%;
+  padding: 5px 20px;
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "24px")};
   font-family: roboto, sans-serif;
   font-weight: 100;
   text-align: ${({ align }) => (align ? align : "center")};
-  padding: 5px;
   border: none;
   border-radius: 20px;
 `
