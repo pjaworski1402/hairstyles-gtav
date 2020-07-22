@@ -5,6 +5,8 @@ import Overlay from "../overlay/Overlay"
 import instaIco from "../../assets/images/instagram.svg"
 import Input from "../inputs/PrimaryInput"
 import Textarea from "../inputs/PrimaryTextarea"
+import Email from "../../helper/EmailApi"
+import Button from "../buttons/PrimaryButton"
 
 const ContactWrapper = styled.ul`
   display: flex;
@@ -46,13 +48,14 @@ const StyledLine = styled.li`
 `
 
 const Contact = () => {
-  const [email, setEmail] = useState()
-  const [text, setText] = useState()
+  // const [email, setEmail] = useState()
+  // const [text, setText] = useState()
+  const [status, setStatus] = useState({})
   return (
     <Overlay title="contact">
       <ContactWrapper>
         <ContactData>
-          E-mail:&nbsp;<b>xyz@gmail.com</b>
+          E-mail:&nbsp;<b>hairstyles.gta5@gmail.com</b>
         </ContactData>
         <StyledLink href="https://www.instagram.com/hairstyles_gta_v/">
           <ContactData>
@@ -63,17 +66,12 @@ const Contact = () => {
         <StyledLine />
         <ContactData>Send me question here:</ContactData>
         <ContactData>
-          <Input
-            placeholder="E-mail to request"
-            align="left"
-            onChange={e => setEmail(e.target.value)}
-          />
-        </ContactData>
-        <ContactData>
-          <Textarea
-            placeholder="Text"
-            onChange={e => setText(e.target.value)}
-          />
+          <Email setStatus={setStatus} status={status}>
+            <Input placeholder="E-mail to request" align="left" name="email" />
+            <Textarea placeholder="Text" name="message" />
+            {status === "SUCCESS" ? <p>Thanks!</p> : <Button>Submit</Button>}
+            {status === "ERROR" && <p>Ooops! There was an error.</p>}
+          </Email>
         </ContactData>
         <StyledLine />
         <ContactData>Site created by Piotr Jaworski</ContactData>

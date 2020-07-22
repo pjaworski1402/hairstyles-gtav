@@ -14,13 +14,14 @@ const Textarea = styled.textarea`
   resize: none;
 `
 
-const PrimaryTextarea = ({ placeholder, onChange, fontSize }) => {
+const PrimaryTextarea = ({ placeholder, onChange, fontSize, name }) => {
   return (
     <Textarea
       placeholder={placeholder}
       onChange={onChange}
       fontSize={fontSize}
       rows="4"
+      name={name}
     />
   )
 }

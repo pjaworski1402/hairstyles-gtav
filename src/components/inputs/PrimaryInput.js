@@ -22,7 +22,14 @@ const Input = styled.input`
   border-radius: 20px;
 `
 
-const PrimaryInput = ({ placeholder, onChange, width, fontSize, align }) => {
+const PrimaryInput = ({
+  placeholder,
+  onChange,
+  width,
+  fontSize,
+  align,
+  name,
+}) => {
   return (
     <Label width={width}>
       <Input
@@ -30,6 +37,7 @@ const PrimaryInput = ({ placeholder, onChange, width, fontSize, align }) => {
         onChange={onChange}
         fontSize={fontSize}
         align={align}
+        name={name}
       />
     </Label>
   )
