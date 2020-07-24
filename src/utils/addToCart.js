@@ -4,6 +4,7 @@ const addToCart = (context, data) => {
     context.addOrder(data)
     return "Hairstyle added to the cart"
   } else {
+    alert("This product is already in the cart")
     return "Already added"
   }
 }

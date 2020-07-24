@@ -29,6 +29,8 @@ const PrimaryInput = ({
   fontSize,
   align,
   name,
+  type,
+  value,
 }) => {
   return (
     <Label width={width}>
@@ -38,6 +40,8 @@ const PrimaryInput = ({
         fontSize={fontSize}
         align={align}
         name={name}
+        type={type}
+        value={value}
       />
     </Label>
   )

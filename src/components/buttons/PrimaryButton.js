@@ -25,9 +25,13 @@ const ButtonIcon = styled.img`
   }
 `
 
-const PrimaryButton = ({ children, icon, onClick, size }) => {
+const PrimaryButton = ({ children, icon, onClick, size, disabled }) => {
   return (
-    <StyledButton onClick={() => onClick && onClick()} size={size}>
+    <StyledButton
+      onClick={() => onClick && onClick()}
+      size={size}
+      disabled={disabled}
+    >
       {icon && <ButtonIcon src={icon} alt="" />}
       {children}
     </StyledButton>

@@ -5,6 +5,23 @@ import TopBar from "./topBar/TopBar"
 import CartButton from "./cartButton/CartButton"
 import Footer from "./footer/Footer"
 
+if (typeof window !== "undefined") {
+  window.addEventListener(
+    "dragover",
+    function (e) {
+      e.preventDefault()
+    },
+    false
+  )
+  window.addEventListener(
+    "drop",
+    function (e) {
+      e.preventDefault()
+    },
+    false
+  )
+}
+
 const Layout = ({ children }) => {
   return (
     <>
