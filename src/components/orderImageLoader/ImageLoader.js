@@ -20,7 +20,7 @@ const ImageLoader = ({ name, width }) => (
               name
               childImageSharp {
                 fluid(maxWidth: 500) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_tracedSVG
                 }
               }
             }

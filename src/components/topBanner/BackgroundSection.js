@@ -10,7 +10,7 @@ const BackgroundSection = ({ children }) => (
         desktop: file(relativePath: { eq: "womanBg.jpg" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
