@@ -1,6 +1,6 @@
 import React from "react"
 import { Location } from "@reach/router"
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -10,7 +10,7 @@ import Search from "../components/search/Search"
 import queryString from "query-string"
 import Contact from "../components/contact/Contact"
 import YOS from "../components/yourOwnStyle/YourOwnStyle"
-import { Cart } from "../components/cartButton/CartButton"
+import { Cart } from "../components/cart/CartButton"
 import BurgerOverlay from "../components/topBar/BurgerOverlay"
 
 const GlobalStyle = createGlobalStyle`
@@ -29,10 +29,18 @@ button:hover{
   cursor: pointer;
 }
 `
+const Warning = styled.div`
+  display: flex;
+  background-color: red;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+`
 
 const IndexPage = () => {
   return (
     <>
+      <Warning>COMING SOON!!!</Warning>
       <GlobalStyle />
       <Layout>
         <Location>
@@ -52,7 +60,7 @@ const IndexPage = () => {
             }
           }}
         </Location>
-        <SEO title="Home" />
+        <SEO title="Hairstyles for GTA 5 || SHOP" />
         <Banner />
         {/* Search doesn't work yet */}
         {/* <Search /> */}

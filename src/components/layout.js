@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import TopBar from "./topBar/TopBar"
-import CartButton from "./cartButton/CartButton"
+import CartButton from "./cart/CartButton"
 import Footer from "./footer/Footer"
 
 if (typeof window !== "undefined") {

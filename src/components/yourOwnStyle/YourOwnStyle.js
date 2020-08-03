@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 
 import { StageOne, StageTwo, StageThree } from "./Stages"
 import Overlay from "../overlay/Overlay"
 import NextButton from "../buttons/PrimaryButton"
-import imgurApi from "../../helper/ImgurApi"
-import { removeQueryFromLink } from "../../helper/linkController"
+import imgurApi from "../../helper/imgurApi"
 
 const FormWrapper = styled.div`
   height: 100%;

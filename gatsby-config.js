@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: "https://hairstyles-gta5.com/",
     title: `Hairstyles GTA V - create your own hairstyle`,
     description: `Are you looking for hair for your GTA V character? Here you will find all hair types for men and women. If you haven't found yet your hair, you can upload a photo of hairstyle you are looking for.`,
     author: `Piotr Jaworski`,
@@ -7,6 +8,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    "gatsby-plugin-cname",
     {
       resolve: `gatsby-source-filesystem`,
       options: {

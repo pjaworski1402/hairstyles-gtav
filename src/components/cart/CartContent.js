@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import styled from "styled-components"
 import ImageLoader from "../orderImageLoader/ImageLoader"
 
@@ -6,6 +6,7 @@ import { CartContext } from "../../context/globalContext"
 import deleteButton from "../../assets/images/deleteButton.svg"
 import BuyButton from "../buttons/PrimaryButton"
 import CartImage from "../../assets/images/cart.svg"
+import generatePayLink from "../../utils/generatePayLink"
 
 const OrderCardWrapper = styled.div`
   display: flex;
@@ -61,11 +62,26 @@ const Price = styled.span`
 `
 
 const CartContent = () => {
+  const [buttonActive, setButtonActive] = useState(true)
   const cartContext = useContext(CartContext)
   let totalPrice = 0
   cartContext.state.forEach(order => {
     totalPrice += order.price
   })
+
+  const handleBuyButtonClick = () => {
+    const cart = cartContext.state.map(item => item.id)
+    setButtonActive(false)
+    if (typeof window !== "undefined") {
+      generatePayLink(cart)
+        .then(link => (window.location.href = link))
+        .catch(err => {
+          alert(err)
+          setButtonActive(true)
+        })
+    }
+  }
+
   return (
     <>
       <OrderCardWrapper>
@@ -79,9 +95,17 @@ const CartContent = () => {
       </OrderCardWrapper>
       <BuySection>
         <Price>Total price: {totalPrice}$</Price>
-        <BuyButton size="big" icon={CartImage}>
-          Buy now
-        </BuyButton>
+        {buttonActive ? (
+          <BuyButton
+            size="big"
+            icon={CartImage}
+            onClick={() => handleBuyButtonClick()}
+          >
+            Buy now
+          </BuyButton>
+        ) : (
+          "please wait..."
+        )}
       </BuySection>
     </>
   )

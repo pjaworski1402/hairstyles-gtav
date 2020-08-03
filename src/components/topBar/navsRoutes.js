@@ -12,10 +12,6 @@ const navs = [
     navTo: "?overlay=yos",
   },
   {
-    name: "instruction",
-    navTo: "?overlay=instruction",
-  },
-  {
     name: "contact",
     navTo: "?overlay=contact",
   },
