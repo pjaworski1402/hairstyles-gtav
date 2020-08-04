@@ -40,7 +40,7 @@ const Warning = styled.div`
 const IndexPage = () => {
   return (
     <>
-      <Warning>COMING SOON!!!</Warning>
+      {/* <Warning>COMING SOON!!!</Warning> */}
       <GlobalStyle />
       <Layout>
         <Location>
