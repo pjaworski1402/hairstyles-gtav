@@ -29,11 +29,6 @@ const TopBarWrapper = styled.nav`
 const Burger = styled(Link)`
   width: 25px;
   height: 15px;
-  background-image: url(${burger});
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: transparent;
   border: none;
   justify-self: right;
   margin-left: auto;
@@ -60,6 +55,10 @@ const LogoText = styled.span`
   margin-left: 20px;
 `
 
+const BurgerIco = styled.img`
+width:100%;
+`
+
 const TopBar = () => {
   return (
     <>
@@ -75,7 +74,9 @@ const TopBar = () => {
             </StyledNavs>
           )
         })}
-        <Burger to={addQueryToLink(`?overlay=burger`)} />
+        <Burger to={addQueryToLink(`?overlay=burger`)}>
+          <BurgerIco src={burger} alt="menu" />
+        </Burger>
       </TopBarWrapper>
     </>
   )

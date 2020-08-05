@@ -60,7 +60,7 @@ const IndexPage = () => {
             }
           }}
         </Location>
-        <SEO title="Hairstyles for GTA 5 || SHOP" />
+        <SEO title="SHOP" />
         <Banner />
         {/* Search doesn't work yet */}
         {/* <Search /> */}

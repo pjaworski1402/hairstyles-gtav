@@ -48,11 +48,11 @@ const StyledTag = styled.li`
   list-style: none;
   padding: 0 5px;
   margin: 0 5px 5px 5px;
-  background-color: rgba(39, 83, 255, 0.3);
+  background-color: rgba(39, 83, 255, .8);
   border-radius: 5px;
   color: white;
   :hover {
-    background-color: rgba(39, 83, 255, 0.8);
+    background-color: rgba(39, 83, 255, 1);
     cursor: pointer;
   }
 `
@@ -80,6 +80,11 @@ const ImageButton = styled.button`
   }
 `
 
+const TagTitle = styled.li`
+  margin: 0 5px 5px 5px;
+  list-style:none;
+`
+
 const imageWidth = "250px"
 
 const OfferCard = ({ data }) => {
@@ -98,7 +103,7 @@ const OfferCard = ({ data }) => {
           <ImageLoader name={data.img} width={imageWidth} />
         </ImageButton>
         <TagWrapper width={imageWidth}>
-          Tags:
+          <TagTitle>Tags:</TagTitle>
           {data.tags.map(tagName => (
             <StyledTag key={tagName}>#{tagName}</StyledTag>
           ))}

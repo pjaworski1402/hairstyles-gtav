@@ -46,7 +46,7 @@ const ArrowDown = styled.i`
 
 const ForWoman = ({ showAllStatus }) => {
   const onlyWoman = isBrowser
-    ? queryString.parse(window.location.search).sex === "woman"
+    ? queryString.parse(window.location.search).group === "woman"
     : null
   return (
     <>
@@ -55,7 +55,7 @@ const ForWoman = ({ showAllStatus }) => {
         <OfferCard key={data.id} data={data} />
       ))}
       <ShowMoreButton
-        to={addQueryToLink(`?sex=woman`)}
+        to={addQueryToLink(`?group=woman`)}
         style={{ display: onlyWoman ? "none" : "block" }}
       >
         Show all woman offers
@@ -68,7 +68,7 @@ const ForWoman = ({ showAllStatus }) => {
 
 const ForMan = ({ showAllStatus }) => {
   const onlyMan = isBrowser
-    ? queryString.parse(window.location.search).sex === "man"
+    ? queryString.parse(window.location.search).group === "man"
     : null
   return (
     <>
@@ -77,7 +77,7 @@ const ForMan = ({ showAllStatus }) => {
         <OfferCard key={data.id} data={data} />
       ))}
       <ShowMoreButton
-        to={addQueryToLink(`?sex=man`)}
+        to={addQueryToLink(`?group=man`)}
         style={{ display: onlyMan ? "none" : "block" }}
       >
         Show all man offers
@@ -93,9 +93,9 @@ const DefaultSearch = () => {
     <StyledOffersList>
       <Location>
         {({ location }) => {
-          const { sex } = queryString.parse(location.search)
+          const { group } = queryString.parse(location.search)
           const Render = () => {
-            switch (sex) {
+            switch (group) {
               case "woman":
                 return <ForWoman showAllStatus={OffersJS.offersWoman.length} />
               case "man":
