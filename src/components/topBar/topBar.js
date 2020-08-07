@@ -49,14 +49,16 @@ const StyledNavs = styled(Link)`
   }
 `
 
-const LogoText = styled.span`
+const LogoText = styled.h3`
   font-size: 20px;
   font-family: "Offside", cursive;
+  margin: 0;
+  font-weight: 400;
   margin-left: 20px;
 `
 
 const BurgerIco = styled.img`
-width:100%;
+  width: 100%;
 `
 
 const TopBar = () => {

@@ -50,7 +50,7 @@ const ForWoman = ({ showAllStatus }) => {
     : null
   return (
     <>
-      <Title>for woman</Title>
+      <Title>hairstyles for woman</Title>
       {OffersJS.offersWoman.slice(0, showAllStatus).map(data => (
         <OfferCard key={data.id} data={data} />
       ))}
@@ -72,7 +72,7 @@ const ForMan = ({ showAllStatus }) => {
     : null
   return (
     <>
-      <Title>for man</Title>
+      <Title>hairstyles for man</Title>
       {OffersJS.offersMan.slice(0, showAllStatus).map(data => (
         <OfferCard key={data.id} data={data} />
       ))}

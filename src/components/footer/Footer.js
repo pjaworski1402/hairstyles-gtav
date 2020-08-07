@@ -11,8 +11,8 @@ const FooterWraper = styled.footer`
   position: relative;
 `
 const Instagram = styled.a`
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   width: 30px;
 `
 const FooterHeader = styled.h1`
@@ -27,16 +27,22 @@ const Author = styled.div`
 `
 
 const InstaImg = styled.img`
-  width:100%;
+  width: 100%;
 `
 
 const Footer = () => {
   return (
     <FooterWraper>
-      <Instagram target="_blank" rel="noopener" href="https://www.instagram.com/hairstyles_gta_v/">
+      <Instagram
+        target="_blank"
+        rel="noopener"
+        href="https://www.instagram.com/hairstyles_gta_v/"
+      >
         <InstaImg src={InstaIco} alt="instagram" />
-        </Instagram>
-      <FooterHeader>hairstyles-gta5</FooterHeader>
+      </Instagram>
+      <FooterHeader>
+        <b>hairstyles gta5</b>
+      </FooterHeader>
       <Author>Site created by Piotr Jaworski</Author>
       <div style={{ width: "30px" }} />
     </FooterWraper>

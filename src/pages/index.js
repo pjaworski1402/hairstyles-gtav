@@ -12,6 +12,7 @@ import Contact from "../components/contact/Contact"
 import YOS from "../components/yourOwnStyle/YourOwnStyle"
 import { Cart } from "../components/cart/CartButton"
 import BurgerOverlay from "../components/topBar/BurgerOverlay"
+import PayIsDone from "../components/payIsDone/PayIsDone"
 
 const GlobalStyle = createGlobalStyle`
 body{
@@ -55,6 +56,8 @@ const IndexPage = () => {
                 return <Cart />
               case "burger":
                 return <BurgerOverlay />
+              case "done":
+                return <PayIsDone />
               default:
                 break
             }

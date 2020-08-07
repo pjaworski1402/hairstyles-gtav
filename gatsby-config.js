@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     siteUrl: "https://hairstyles-gta5.com/",
-    title: `Hairstyles GTA V - create your own hairstyle`,
-    description: `Are you looking for hair for your GTA V character? Here you will find all hair types for men and women. If you haven't found yet your hair, you can upload a photo of hairstyle you are looking for.`,
+    title: `Hairstyles GTA V - buy hairstyles for your GTA5 charakter`,
+    description: `Hairstyle GTA 5 for you. You can create custom hairstyles. GTA 5 custom clothes. Special items for GTA V.`,
     author: `Piotr Jaworski`,
   },
   plugins: [
@@ -11,12 +11,12 @@ module.exports = {
     "gatsby-plugin-cname",
     `gatsby-plugin-sitemap`,
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: 'https://hairstyles-gta5.com/',
-        sitemap: 'https://hairstyles-gta5.com/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
+        host: "https://hairstyles-gta5.com/",
+        sitemap: "https://hairstyles-gta5.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -29,15 +29,15 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-        {
-          resolve: "gatsby-remark-external-links",
-          options: {
-            target: "_self",
-            rel: "nofollow"
-          }
-        }
-        ]
-      }
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_self",
+              rel: "nofollow",
+            },
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,

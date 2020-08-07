@@ -14,8 +14,10 @@ const Title = styled.h1`
     font-size: 48px;
   }
 `
-const Text = styled.div`
+const Text = styled.h2`
   text-align: center;
+  font-weight: 400;
+  margin: 0;
   color: white;
   text-shadow: 0 0 5px black;
   padding: 5vw;
