@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteUrl: "https://hairstyles-gta5.com/",
-    title: `Hairstyles GTA V - buy hairstyles for your GTA5 charakter`,
+    title: `Hairstyles GTA V - buy hairstyles for your GTA5 character`,
     description: `Hairstyle GTA 5 for you. You can create custom hairstyles. GTA 5 custom clothes. Special items for GTA V.`,
     author: `Piotr Jaworski`,
   },
