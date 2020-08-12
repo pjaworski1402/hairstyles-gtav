@@ -30,18 +30,10 @@ button:hover{
   cursor: pointer;
 }
 `
-const Warning = styled.div`
-  display: flex;
-  background-color: red;
-  text-align: center;
-  color: white;
-  font-weight: 700;
-`
 
 const IndexPage = () => {
   return (
     <>
-      {/* <Warning>COMING SOON!!!</Warning> */}
       <GlobalStyle />
       <Layout>
         <Location>
@@ -65,8 +57,7 @@ const IndexPage = () => {
         </Location>
         <SEO title="SHOP" />
         <Banner />
-        {/* Search doesn't work yet */}
-        {/* <Search /> */}
+        <Search />
         <Offers />
       </Layout>
     </>

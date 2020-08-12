@@ -3,7 +3,7 @@
 const offers = {
   // last update hairstyles list date
   date: "03.08.2020",
-  offersWoman: [
+  woman: [
     {
       id: 0,
       img: "k1_1.jpg",
@@ -115,7 +115,7 @@ const offers = {
       price: 15,
     },
   ],
-  offersMan: [
+  man: [
     {
       id: 100,
       img: "m1_1.jpg",

@@ -10,8 +10,7 @@ import OfferCard from "../offerCard/OfferCard"
 import NewStyleCard from "../newStyleCard/NewStyleCard"
 import { SearchContext } from "../../context/globalContext"
 import { addQueryToLink } from "../../helper/linkController"
-
-const isBrowser = typeof window !== `undefined`
+import find from "../../utils/findEngine"
 
 const StyledOffersList = styled.section`
   display: flex;
@@ -44,21 +43,21 @@ const ArrowDown = styled.i`
   margin: 5px 10px;
 `
 
-const ForWoman = ({ showAllStatus }) => {
-  const onlyWoman = isBrowser
-    ? queryString.parse(window.location.search).group === "woman"
-    : null
+const OffersTab = ({ title, showAllStatus, group, offersToRender }) => {
+  const length = showAllStatus ? offersToRender.length : 3
   return (
     <>
-      <Title>hairstyles for woman</Title>
-      {OffersJS.offersWoman.slice(0, showAllStatus).map(data => (
+      <Title>{title}</Title>
+      {offersToRender.slice(0, length).map(data => (
         <OfferCard key={data.id} data={data} />
       ))}
       <ShowMoreButton
-        to={addQueryToLink(`?group=woman`)}
-        style={{ display: onlyWoman ? "none" : "block" }}
+        to={addQueryToLink(`?group=${group}`)}
+        style={{
+          display: showAllStatus ? "none" : "block",
+        }}
       >
-        Show all woman offers
+        {`Show all ${group} offers`}
         <ArrowDown />
       </ShowMoreButton>
       <NewStyleCard />
@@ -66,29 +65,9 @@ const ForWoman = ({ showAllStatus }) => {
   )
 }
 
-const ForMan = ({ showAllStatus }) => {
-  const onlyMan = isBrowser
-    ? queryString.parse(window.location.search).group === "man"
-    : null
-  return (
-    <>
-      <Title>hairstyles for man</Title>
-      {OffersJS.offersMan.slice(0, showAllStatus).map(data => (
-        <OfferCard key={data.id} data={data} />
-      ))}
-      <ShowMoreButton
-        to={addQueryToLink(`?group=man`)}
-        style={{ display: onlyMan ? "none" : "block" }}
-      >
-        Show all man offers
-        <ArrowDown />
-      </ShowMoreButton>
-      <NewStyleCard />
-    </>
-  )
-}
-
-const DefaultSearch = () => {
+const Offers = () => {
+  const searchValue = useContext(SearchContext).searchState
+  console.log(find(searchValue))
   return (
     <StyledOffersList>
       <Location>
@@ -97,17 +76,53 @@ const DefaultSearch = () => {
           const Render = () => {
             switch (group) {
               case "woman":
-                return <ForWoman showAllStatus={OffersJS.offersWoman.length} />
+                return (
+                  <OffersTab
+                    showAllStatus={true}
+                    group="woman"
+                    offersToRender={OffersJS.woman}
+                    title="hairstyles for woman"
+                  />
+                )
               case "man":
-                return <ForMan showAllStatus={OffersJS.offersMan.length} />
+                return (
+                  <OffersTab
+                    showAllStatus={true}
+                    group="man"
+                    offersToRender={OffersJS.man}
+                    title="hairstyles for man"
+                  />
+                )
 
               default:
-                return (
-                  <>
-                    <ForWoman showAllStatus={3} />
-                    <ForMan showAllStatus={3} />
-                  </>
-                )
+                const findedOffers = find(searchValue)
+                if (searchValue && findedOffers.length > 0) {
+                  return (
+                    <OffersTab
+                      showAllStatus={true}
+                      group="finded"
+                      offersToRender={findedOffers}
+                      title="finded hairstyles"
+                    />
+                  )
+                } else {
+                  return (
+                    <>
+                      <OffersTab
+                        showAllStatus={false}
+                        group="woman"
+                        offersToRender={OffersJS.woman}
+                        title="hairstyles for woman"
+                      />
+                      <OffersTab
+                        showAllStatus={false}
+                        group="man"
+                        offersToRender={OffersJS.man}
+                        title="hairstyles for man"
+                      />
+                    </>
+                  )
+                }
             }
           }
           return <Render />
@@ -115,45 +130,6 @@ const DefaultSearch = () => {
       </Location>
     </StyledOffersList>
   )
-}
-
-const FilteredOffers = () => {
-  let offerss = []
-  const searchContext = useContext(SearchContext)
-  const tags = searchContext.searchState.split(" ")
-  const allOffers = [...OffersJS.offersWoman, ...OffersJS.offersMan]
-
-  // allOffers.forEach((offer, index, arr) => {
-  //   const offerTags = offer.tags.join(" ")
-  //   console.log(offerTags)
-  //   tags.forEach(tagg => {
-  //     if (offerTags.includes(tagg.toLowerCase())) {
-  //       offerss.push(offer)
-  //     }
-  //   })
-  // })
-
-  return (
-    <>
-      {!offerss.length > 0 ? (
-        <DefaultSearch />
-      ) : (
-        <>
-          <Title>finded</Title>
-          <StyledOffersList>
-            {offerss.map(data => (
-              <OfferCard key={data.id} data={data} />
-            ))}
-            <NewStyleCard />
-          </StyledOffersList>
-        </>
-      )}
-    </>
-  )
-}
-
-const Offers = () => {
-  return <FilteredOffers />
 }
 
 export default Offers

@@ -1,9 +1,10 @@
 import { SEARCH } from "./types"
 
 const setSearch = (text, state) => {
+  const converted = text.replace(/,/g, " ").toLowerCase()
   return {
     ...state,
-    search: text,
+    search: converted,
   }
 }
 
