@@ -107,13 +107,6 @@ const offers = {
       tags: ["princess", "woman", "hair", "long", "pinned"],
       price: 15,
     },
-    {
-      id: 13,
-      img: "k14_1.jpg",
-      gallery: ["k14_5.jpg", "k14_2.jpg", "k14_3.jpg", "k14_4.jpg"],
-      tags: ["short", "woman", "hair", "princess", "cute", "pinned"],
-      price: 15,
-    },
   ],
   man: [
     {

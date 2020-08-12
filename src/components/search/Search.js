@@ -8,6 +8,8 @@ import offers from "../../content/offers"
 import Button from "../buttons/PrimaryButton"
 import backArrow from "../../assets/images/back.svg"
 
+const isBrowser = typeof window !== `undefined`
+
 const SearchWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -23,22 +25,24 @@ const Search = () => {
   const searchContext = useContext(SearchContext)
   return (
     <SearchWrapper>
-      {queryString.parse(window.location.search).group ? (
-        <Button isLink to="/" icon={backArrow}>
-          Back
-        </Button>
-      ) : (
-        <>
-          <LastUpdateStyled>Last update: {offers.date}</LastUpdateStyled>
-          <Input
-            placeholder="Search"
-            width="35%"
-            fontSize="20px"
-            value={searchContext.searchState}
-            onChange={e => searchContext.setSearch(e.target.value)}
-          />
-        </>
-      )}
+      {isBrowser ? (
+        queryString.parse(window.location.search).group ? (
+          <Button isLink to="/" icon={backArrow}>
+            Back
+          </Button>
+        ) : (
+          <>
+            <LastUpdateStyled>Last update: {offers.date}</LastUpdateStyled>
+            <Input
+              placeholder="Search"
+              width="35%"
+              fontSize="20px"
+              value={searchContext.searchState}
+              onChange={e => searchContext.setSearch(e.target.value)}
+            />
+          </>
+        )
+      ) : null}
     </SearchWrapper>
   )
 }
