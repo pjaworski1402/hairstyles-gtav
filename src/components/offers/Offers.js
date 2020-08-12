@@ -67,7 +67,6 @@ const OffersTab = ({ title, showAllStatus, group, offersToRender }) => {
 
 const Offers = () => {
   const searchValue = useContext(SearchContext).searchState
-  console.log(find(searchValue))
   return (
     <StyledOffersList>
       <Location>

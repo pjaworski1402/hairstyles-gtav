@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from "react"
 import cartReducers from "./cartReducers"
 import SearchReducers from "./SearchReducers"
-import { ADD_ORDER, REMOVE_ORDER, SEARCH } from "./types"
+import { ADD_ORDER, REMOVE_ORDER, SEARCH, ADD_TO_SEARCH } from "./types"
 
 export const CartContext = createContext({
   orders: [],
@@ -18,7 +18,11 @@ export const SearchContext = createContext({
   setSearch: () => {
     console.log("setSearch")
   },
+  addToSearch: () => {
+    console.log("addToSearch")
+  },
 })
+
 let initialState = { orders: [] }
 if (
   typeof localStorage !== `undefined` &&
@@ -64,9 +68,16 @@ export const GlobalStateProvider = ({ children }) => {
     })
   }
 
+  const addToSearch = text => {
+    searchDispatch({
+      type: ADD_TO_SEARCH,
+      payload: text,
+    })
+  }
+
   return (
     <SearchContext.Provider
-      value={{ searchState: searchState.search, setSearch }}
+      value={{ searchState: searchState.search, setSearch, addToSearch }}
     >
       <CartContext.Provider
         value={{ state: state.orders, addOrder, removeOrder }}

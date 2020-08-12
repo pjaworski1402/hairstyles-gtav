@@ -5,7 +5,7 @@ import addToCart from "../../utils/addToCart"
 import PrimaryButton from "../buttons/PrimaryButton"
 import CartImage from "../../assets/images/cart.svg"
 import ImageLoader from "../orderImageLoader/ImageLoader"
-import { CartContext } from "../../context/globalContext"
+import { CartContext, SearchContext } from "../../context/globalContext"
 import Overlay from "../overlay/Overlay"
 import Gallery from "./Gallery"
 
@@ -48,9 +48,13 @@ const StyledTag = styled.li`
   list-style: none;
   padding: 0 5px;
   margin: 0 5px 5px 5px;
-  background-color: rgba(39, 83, 255, .8);
+  background-color: rgba(39, 83, 255, 0.8);
   border-radius: 5px;
-  color: white;
+  button {
+    background-color: transparent;
+    border: none;
+    color: white;
+  }
   :hover {
     background-color: rgba(39, 83, 255, 1);
     cursor: pointer;
@@ -82,20 +86,21 @@ const ImageButton = styled.button`
 
 const TagTitle = styled.li`
   margin: 0 5px 5px 5px;
-  list-style:none;
+  list-style: none;
 `
 
 const imageWidth = "250px"
 
 const OfferCard = ({ data }) => {
   const [overlayOpen, setOverlayOpen] = useState(false)
-  const context = useContext(CartContext)
-
+  const cartContext = useContext(CartContext)
+  const searchContext = useContext(SearchContext)
+  const searchTags = searchContext.searchState.split(" ")
   return (
     <>
       {overlayOpen && (
         <Overlay title={"Gallery"} setOverlayOpen={setOverlayOpen}>
-          <Gallery data={data} context={context} />
+          <Gallery data={data} cartContext={cartContext} />
         </Overlay>
       )}
       <StyledOfferCard>
@@ -105,13 +110,21 @@ const OfferCard = ({ data }) => {
         <TagWrapper width={imageWidth}>
           <TagTitle>Tags:</TagTitle>
           {data.tags.map(tagName => (
-            <StyledTag key={tagName}>#{tagName}</StyledTag>
+            <StyledTag key={tagName}>
+              {searchTags.includes(tagName) ? (
+                `#${tagName}`
+              ) : (
+                <button onClick={() => searchContext.addToSearch(tagName)}>
+                  #{tagName}
+                </button>
+              )}
+            </StyledTag>
           ))}
         </TagWrapper>
         <BuyWrapper>
           <PrimaryButton
             icon={CartImage}
-            onClick={() => addToCart(context, data)}
+            onClick={() => addToCart(cartContext, data)}
           >
             Add to cart
           </PrimaryButton>

@@ -37,7 +37,7 @@ const Price = styled.span`
   font-size: 30px;
 `
 
-const Gallery = ({ data, context }) => {
+const Gallery = ({ data, cartContext }) => {
   const [selectedPhoto, setSelectedPhoto] = useState(data.img)
   const imageWidth = "400px"
   const selectedPhotoBorder = img =>
@@ -65,7 +65,10 @@ const Gallery = ({ data, context }) => {
         ))}
       </ImagesWrapper>
       <BuyWrapper>
-        <BuyButton icon={CartImage} onClick={() => addToCart(context, data)}>
+        <BuyButton
+          icon={CartImage}
+          onClick={() => addToCart(cartContext, data)}
+        >
           Add to cart
         </BuyButton>
         <PriceText>
