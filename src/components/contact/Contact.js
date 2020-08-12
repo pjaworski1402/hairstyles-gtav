@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import Overlay from "../overlay/Overlay"
 import instaIco from "../../assets/images/instagram.svg"
+import discordIco from "../../assets/images/discord.svg"
 import Input from "../inputs/PrimaryInput"
 import Textarea from "../inputs/PrimaryTextarea"
 import Email from "../../helper/EmailApi"
@@ -48,8 +49,6 @@ const StyledLine = styled.li`
 `
 
 const Contact = () => {
-  // const [email, setEmail] = useState()
-  // const [text, setText] = useState()
   const [status, setStatus] = useState({})
   return (
     <Overlay title="contact">
@@ -57,10 +56,24 @@ const Contact = () => {
         <ContactData>
           E-mail:&nbsp;<b>hairstyles.gta5@gmail.com</b>
         </ContactData>
-        <StyledLink href="https://www.instagram.com/hairstyles_gta_v/">
+        <StyledLink
+          target="_blank"
+          rel="noopener"
+          href="https://www.instagram.com/hairstyles_gta_v/"
+        >
           <ContactData>
             Instagram&nbsp;
             <StyledInstagramIco src={instaIco} />
+          </ContactData>
+        </StyledLink>
+        <StyledLink
+          target="_blank"
+          rel="noopener"
+          href="https://discord.com/invite/u4AdR9m"
+        >
+          <ContactData>
+            Discord&nbsp;
+            <StyledInstagramIco src={discordIco} />
           </ContactData>
         </StyledLink>
         <StyledLine />

@@ -35,7 +35,7 @@ const Search = () => {
             <LastUpdateStyled>Last update: {offers.date}</LastUpdateStyled>
             <Input
               placeholder="Search"
-              width="35%"
+              width="40%"
               fontSize="20px"
               value={searchContext.searchState}
               onChange={e => searchContext.setSearch(e.target.value)}

@@ -1,6 +1,6 @@
 import React from "react"
 import { Location } from "@reach/router"
-import styled, { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
