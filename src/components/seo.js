@@ -62,7 +62,9 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link rel="canonical" href="https://hairstyles-gta5.com/" />
+    </Helmet>
   )
 }
 
