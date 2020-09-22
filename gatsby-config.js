@@ -10,6 +10,7 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     "gatsby-plugin-cname",
     `gatsby-plugin-sitemap`,
+<<<<<<< HEAD
     `gatsby-plugin-build-date`,
     {
       resolve: `gatsby-source-strapi`,
@@ -19,6 +20,8 @@ module.exports = {
         contentTypes: [`category`, `offer`, `tag`],
       },
     },
+=======
+>>>>>>> 7f23e4f984630e23292383c7f6d10974f0f73d75
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
@@ -48,6 +51,16 @@ module.exports = {
         ],
       },
     },
+<<<<<<< HEAD
+=======
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `offersImages`,
+        path: `${__dirname}/src/content/assets`,
+      },
+    },
+>>>>>>> 7f23e4f984630e23292383c7f6d10974f0f73d75
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -59,7 +72,11 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
+<<<<<<< HEAD
         icon: `src/assets/images/logo.png`,
+=======
+        icon: `src/assets/images/logo.png`, // This path is relative to the root of the site.
+>>>>>>> 7f23e4f984630e23292383c7f6d10974f0f73d75
       },
     },
     {
@@ -69,5 +86,11 @@ module.exports = {
         display: "swap",
       },
     },
+<<<<<<< HEAD
+=======
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
+>>>>>>> 7f23e4f984630e23292383c7f6d10974f0f73d75
   ],
 }
