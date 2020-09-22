@@ -116,12 +116,17 @@ const Offers = () => {
               const groupData = categories.find(
                 category => category.group === group
               )
+              let findedOffers = offersByCategories(groupData.strapiId)
+
+              if (searchValue && findedOffers.length > 0) {
+                findedOffers = find(searchValue, findedOffers)
+              }
               return (
                 <OffersTab
                   key={groupData.strapiId}
                   showAllStatus={true}
                   group={groupData.group}
-                  offersToRender={offersByCategories(groupData.strapiId)}
+                  offersToRender={findedOffers}
                   title={groupData.title}
                 />
               )

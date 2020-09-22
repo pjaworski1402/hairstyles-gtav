@@ -9,7 +9,9 @@ const find = (search, offers) => {
         including++
       }
       if (searchTags.length === including) {
-        finded.push(offer)
+        if (!finded.find(e => e.strapiId === offer.strapiId)) {
+          finded.push(offer)
+        }
       }
     })
   })

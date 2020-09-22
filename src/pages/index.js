@@ -21,7 +21,7 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 *, *::before, *::after{
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 button{
   font-family: Open Sans, 'sans-serif'
@@ -32,30 +32,33 @@ button:hover{
 `
 
 const IndexPage = () => {
+  console.log("version", "2.1.2")
   return (
     <>
       <GlobalStyle />
+      <SEO title="SHOP" />
       <Layout>
-        <Location>
-          {({ location }) => {
-            const openOverlay = queryString.parse(location.search).overlay
-            switch (openOverlay) {
-              case "contact":
-                return <Contact />
-              case "yos":
-                return <YOS />
-              case "cart":
-                return <Cart />
-              case "burger":
-                return <BurgerOverlay />
-              case "done":
-                return <PayIsDone />
-              default:
-                break
-            }
-          }}
-        </Location>
-        <SEO title="SHOP" />
+        <div>
+          <Location>
+            {({ location }) => {
+              const openOverlay = queryString.parse(location.search).overlay
+              switch (openOverlay) {
+                case "contact":
+                  return <Contact />
+                case "yos":
+                  return <YOS />
+                case "cart":
+                  return <Cart />
+                case "burger":
+                  return <BurgerOverlay />
+                case "done":
+                  return <PayIsDone />
+                default:
+                  break
+              }
+            }}
+          </Location>
+        </div>
         <Banner />
         <Search />
         <Offers />

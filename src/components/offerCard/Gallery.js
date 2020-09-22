@@ -16,6 +16,8 @@ const GalleryWrapper = styled.div`
 
 const ImagesWrapper = styled.div`
   display: flex;
+  width: 100%;
+  overflow-x: scroll;
 `
 
 const SelectImageBtn = styled.button`
@@ -66,7 +68,7 @@ const Gallery = ({ data, cartContext }) => {
           Add to cart
         </BuyButton>
         <PriceText>
-          ONLY&nbsp;<Price>5$</Price>
+          ONLY&nbsp;<Price>{data.price}$</Price>
         </PriceText>
       </BuyWrapper>
     </GalleryWrapper>

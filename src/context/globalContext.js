@@ -1,7 +1,13 @@
 import React, { createContext, useReducer } from "react"
 import cartReducers from "./cartReducers"
 import SearchReducers from "./SearchReducers"
-import { ADD_ORDER, REMOVE_ORDER, SEARCH, ADD_TO_SEARCH } from "./types"
+import {
+  ADD_ORDER,
+  REMOVE_ORDER,
+  SEARCH,
+  ADD_TO_SEARCH,
+  REMOVE_FROM_SEARCH,
+} from "./types"
 
 export const CartContext = createContext({
   orders: [],
@@ -75,9 +81,21 @@ export const GlobalStateProvider = ({ children }) => {
     })
   }
 
+  const removeFromSearch = text => {
+    searchDispatch({
+      type: REMOVE_FROM_SEARCH,
+      payload: text,
+    })
+  }
+
   return (
     <SearchContext.Provider
-      value={{ searchState: searchState.search, setSearch, addToSearch }}
+      value={{
+        searchState: searchState.search,
+        setSearch,
+        addToSearch,
+        removeFromSearch,
+      }}
     >
       <CartContext.Provider
         value={{ state: state.orders, addOrder, removeOrder }}

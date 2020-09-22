@@ -42,3 +42,4 @@ npm run deploy
 - [ ] Messages, e.g. the product has been added to the cart
 - [ ] Basic animations
 - [ ] Information about an incorrect transaction
+- [ ] Fix the bug with 3 wrong offers after reloading the page

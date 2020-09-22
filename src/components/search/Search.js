@@ -15,10 +15,21 @@ const SearchWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 20px;
+  position: relative;
 `
 const LastUpdateStyled = styled.div`
   font-weight: 200;
   font-size: 14px;
+`
+
+const ClearTags = styled.button`
+  color: #2753ff;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 0;
+  bottom: -100%;
+  display: ${({ display }) => (display ? "initial" : "none")};
 `
 
 const Search = () => {
@@ -30,6 +41,9 @@ const Search = () => {
       }
     }
   `)
+  const handleClickClear = () => {
+    searchContext.setSearch("")
+  }
   return (
     <SearchWrapper>
       {isBrowser ? (
@@ -38,21 +52,24 @@ const Search = () => {
             Back
           </Button>
         ) : (
-          <>
-            <LastUpdateStyled>
-              Last update: {data.currentBuildDate.currentDate}
-            </LastUpdateStyled>
-
-            <Input
-              placeholder="Search"
-              width="40%"
-              fontSize="20px"
-              value={searchContext.searchState}
-              onChange={e => searchContext.setSearch(e.target.value)}
-            />
-          </>
+          <LastUpdateStyled>
+            Last update: {data.currentBuildDate.currentDate}
+          </LastUpdateStyled>
         )
       ) : null}
+      <Input
+        placeholder="Search"
+        width="40%"
+        fontSize="20px"
+        value={searchContext.searchState}
+        onChange={e => searchContext.setSearch(e.target.value)}
+      />
+      <ClearTags
+        onClick={() => handleClickClear()}
+        display={!!searchContext.searchState}
+      >
+        Clear tags
+      </ClearTags>
     </SearchWrapper>
   )
 }

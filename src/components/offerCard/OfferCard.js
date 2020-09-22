@@ -54,6 +54,9 @@ const StyledTag = styled.li`
     background-color: transparent;
     border: none;
     color: white;
+    .selected {
+      color: black;
+    }
   }
   :hover {
     background-color: rgba(39, 83, 255, 1);
@@ -112,7 +115,12 @@ const OfferCard = ({ data }) => {
           {data.tags.map(({ tagName, id }) => (
             <StyledTag key={id}>
               {searchTags.includes(tagName) ? (
-                `#${tagName}`
+                <button
+                  style={{ color: "black", fontWeight: "bolder" }}
+                  onClick={() => searchContext.removeFromSearch(tagName)}
+                >
+                  #{tagName}
+                </button>
               ) : (
                 <button onClick={() => searchContext.addToSearch(tagName)}>
                   #{tagName}
