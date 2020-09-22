@@ -6,7 +6,6 @@ const generatePayLink = id => {
   var config = {
     method: "post",
     url: "https://us-central1-hairstyles-gta5.cloudfunctions.net/paypalApi",
-    // url: "http://localhost:5001/hairstyles-gta5/us-central1/paypalApi",
     headers: {
       "Content-Type": "application/json",
     },

@@ -4,7 +4,7 @@ import styled from "styled-components"
 import addToCart from "../../utils/addToCart"
 import PrimaryButton from "../buttons/PrimaryButton"
 import CartImage from "../../assets/images/cart.svg"
-// import ImageLoader from "../orderImageLoader/ImageLoader"
+import Image from "../styledImage/Image"
 import { CartContext, SearchContext } from "../../context/globalContext"
 import Overlay from "../overlay/Overlay"
 import Gallery from "./Gallery"
@@ -88,11 +88,7 @@ const TagTitle = styled.li`
   margin: 0 5px 5px 5px;
   list-style: none;
 `
-const StyledImage = styled.img`
-  width: ${({ width }) => width};
-  height: ${({ width }) => width};
-  border-radius: 5px;
-`
+
 const imageWidth = "250px"
 
 const OfferCard = ({ data }) => {
@@ -109,8 +105,7 @@ const OfferCard = ({ data }) => {
       )}
       <StyledOfferCard>
         <ImageButton onClick={() => setOverlayOpen(true)}>
-          {/* <ImageLoader name={data.img} width={imageWidth} /> */}
-          <StyledImage src={`${data.gallery[0].url}`} width={imageWidth} />
+          <Image src={`${data.gallery[0].url}`} width={imageWidth} />
         </ImageButton>
         <TagWrapper width={imageWidth}>
           <TagTitle>Tags:</TagTitle>

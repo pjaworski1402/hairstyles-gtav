@@ -9,7 +9,7 @@ const navs = [
   },
   {
     name: "clothes",
-    navTo: "?overlay=clothes",
+    navTo: "?group=clothes",
   },
   {
     name: "your style",

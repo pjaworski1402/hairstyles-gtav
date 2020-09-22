@@ -97,9 +97,6 @@ export const StageTwo = ({ setFile, file, error }) => {
       ) : (
         <UploadImage
           className="uploadImage"
-          // onFrameDragEnter={event => {}}
-          // onFrameDragLeave={event => {}}
-          // onFrameDrop={event => {}}
           onDragOver={event => {
             const dropArea = document.querySelector(".uploadImage")
             dropArea.style.border = "2px solid #2753ff"
@@ -117,6 +114,7 @@ export const StageTwo = ({ setFile, file, error }) => {
           <StyledLabelBrowse>
             browse
             <input
+              aria-label="browse"
               type="file"
               style={{ display: "none" }}
               accept="image/*"

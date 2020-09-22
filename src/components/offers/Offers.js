@@ -1,11 +1,10 @@
 import React, { useContext } from "react"
-import { Link, useStaticQuery } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import { Location } from "@reach/router"
 import styled from "styled-components"
 import queryString from "query-string"
 
 import Title from "../title/Title"
-// import OffersJS from "../../content/offers.js"
 import OfferCard from "../offerCard/OfferCard"
 import NewStyleCard from "../newStyleCard/NewStyleCard"
 import { SearchContext } from "../../context/globalContext"
@@ -149,65 +148,6 @@ const Offers = () => {
                 ))
               }
             }
-            // switch (group) {
-            //   case "woman":
-            //     return (
-            //       <OffersTab
-            //         showAllStatus={true}
-            //         group="woman"
-            //         offersToRender={OffersJS.woman}
-            //         title="hairstyles for woman"
-            //       />
-            //     )
-            //   case "man":
-            //     return (
-            //       <OffersTab
-            //         showAllStatus={true}
-            //         group="man"
-            //         offersToRender={OffersJS.man}
-            //         title="hairstyles for man"
-            //       />
-            //     )
-
-            //   default:
-            //     const findedOffers = find(searchValue)
-            //     if (searchValue && findedOffers.length > 0) {
-            //       return (
-            //         <OffersTab
-            //           showAllStatus={true}
-            //           group="finded"
-            //           offersToRender={findedOffers}
-            //           title="finded hairstyles"
-            //         />
-            //       )
-            //     } else {
-            //       return (
-            //         <>
-            //           {categories.map(category => (
-            //             <OffersTab
-            //               key={category.strapiId}
-            //               showAllStatus={false}
-            //               group={category.group}
-            //               offersToRender={offersByCategories(category.strapiId)}
-            //               title={category.title}
-            //             />
-            //           ))}
-            //           {/* <OffersTab
-            //             showAllStatus={false}
-            //             group="woman"
-            //             offersToRender={OffersJS.woman}
-            //             title="hairstyles for woman"
-            //           />
-            //           <OffersTab
-            //             showAllStatus={false}
-            //             group="man"
-            //             offersToRender={OffersJS.man}
-            //             title="hairstyles for man"
-            //           /> */}
-            //         </>
-            //       )
-            //     }
-            // }
           }
           return <Render />
         }}

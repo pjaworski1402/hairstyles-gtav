@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
 import styled from "styled-components"
-// import ImageLoader from "../orderImageLoader/ImageLoader"
+import Image from "../styledImage/Image"
 
 import { CartContext } from "../../context/globalContext"
 import deleteButton from "../../assets/images/deleteButton.svg"
@@ -60,11 +60,7 @@ const Price = styled.span`
   font-weight: 700;
   margin-right: 20px;
 `
-const StyledImage = styled.img`
-  width: ${({ width }) => width};
-  height: ${({ width }) => width};
-  border-radius: 5px;
-`
+
 const CartContent = () => {
   const [buttonActive, setButtonActive] = useState(true)
   const cartContext = useContext(CartContext)
@@ -91,8 +87,7 @@ const CartContent = () => {
         {cartContext.state.map(order => (
           <OrderCard key={order.strapiId}>
             <DeleteOrderBtn onClick={() => cartContext.removeOrder(order.id)} />
-            {/* <ImageLoader name={order.img} width={"100px"} /> */}
-            <StyledImage src={`${order.gallery[0].url}`} width={"100px"} />
+            <Image src={`${order.gallery[0].url}`} width={"100px"} />
             <div>{order.price}$</div>
           </OrderCard>
         ))}

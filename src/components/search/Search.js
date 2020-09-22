@@ -1,11 +1,10 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import queryString from "query-string"
-import { useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Input from "../inputs/PrimaryInput"
 import { SearchContext } from "../../context/globalContext"
-// import offers from "../../content/offers"
 import Button from "../buttons/PrimaryButton"
 import backArrow from "../../assets/images/back.svg"
 
