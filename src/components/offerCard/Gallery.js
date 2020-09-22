@@ -16,8 +16,8 @@ const GalleryWrapper = styled.div`
 
 const ImagesWrapper = styled.div`
   display: flex;
-  width: 100%;
-  overflow-x: scroll;
+  max-width: 100%;
+  overflow-x: auto;
 `
 
 const SelectImageBtn = styled.button`
