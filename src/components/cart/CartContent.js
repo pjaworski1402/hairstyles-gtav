@@ -1,10 +1,6 @@
 import React, { useContext, useState } from "react"
 import styled from "styled-components"
-<<<<<<< HEAD
 import Image from "../styledImage/Image"
-=======
-import ImageLoader from "../orderImageLoader/ImageLoader"
->>>>>>> 7f23e4f984630e23292383c7f6d10974f0f73d75
 
 import { CartContext } from "../../context/globalContext"
 import deleteButton from "../../assets/images/deleteButton.svg"

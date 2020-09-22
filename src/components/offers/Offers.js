@@ -1,9 +1,5 @@
 import React, { useContext } from "react"
-<<<<<<< HEAD
 import { Link, useStaticQuery, graphql } from "gatsby"
-=======
-import { Link } from "gatsby"
->>>>>>> 7f23e4f984630e23292383c7f6d10974f0f73d75
 import { Location } from "@reach/router"
 import styled from "styled-components"
 import queryString from "query-string"
