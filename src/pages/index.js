@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Banner from "../components/topBanner/topBanner"
+import Banner from "../components/topBanner/TopBanner"
 import Offers from "../components/offers/Offers"
 import Search from "../components/search/Search"
 import queryString from "query-string"
