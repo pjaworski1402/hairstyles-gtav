@@ -32,7 +32,6 @@ button:hover{
 `
 
 const IndexPage = () => {
-  console.log("version", "2.1.2")
   return (
     <>
       <GlobalStyle />
@@ -52,7 +51,11 @@ const IndexPage = () => {
                 case "burger":
                   return <BurgerOverlay />
                 case "done":
-                  return <PayIsDone />
+                  return <PayIsDone status="done" />
+                case "cancel":
+                  return <PayIsDone status="cancel" />
+                case "error":
+                  return <PayIsDone status="error" />
                 default:
                   break
               }

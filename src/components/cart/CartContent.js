@@ -11,7 +11,7 @@ import generatePayLink from "../../utils/generatePayLink"
 const OrderCardWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  overflow: scroll;
+  overflow: auto;
   height: 80%;
   padding: 15px;
   border: 1px solid rgba(0, 0, 0, 0.25);
@@ -87,7 +87,7 @@ const CartContent = () => {
         {cartContext.state.map(order => (
           <OrderCard key={order.strapiId}>
             <DeleteOrderBtn onClick={() => cartContext.removeOrder(order.id)} />
-            <Image src={`${order.gallery[0].url}`} width={"100px"} />
+            <Image src={order.gallery[0]} width={"100px"} />
             <div>{order.price}$</div>
           </OrderCard>
         ))}

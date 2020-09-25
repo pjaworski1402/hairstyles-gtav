@@ -26,7 +26,7 @@ const StyledNavs = styled.a`
 
 const BurgerOverlay = () => {
   return (
-    <Overlay title={"menu"}>
+    <Overlay title={"menu"} noAnimate={true}>
       <NavsWrapper>
         {navs.map(({ navTo, name }) => (
           <StyledNavs key={name} href={navTo}>

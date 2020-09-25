@@ -99,6 +99,9 @@ const OfferCard = ({ data }) => {
   const cartContext = useContext(CartContext)
   const searchContext = useContext(SearchContext)
   const searchTags = searchContext.searchState.split(" ")
+  const inCart = !!cartContext.state.find(
+    state => state.strapiId === data.strapiId
+  )
   return (
     <>
       {overlayOpen && (
@@ -108,7 +111,7 @@ const OfferCard = ({ data }) => {
       )}
       <StyledOfferCard>
         <ImageButton onClick={() => setOverlayOpen(true)}>
-          <Image src={`${data.gallery[0].url}`} width={imageWidth} />
+          <Image src={data.gallery[0]} width={imageWidth} />
         </ImageButton>
         <TagWrapper width={imageWidth}>
           <TagTitle>Tags:</TagTitle>

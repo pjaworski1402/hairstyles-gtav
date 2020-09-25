@@ -83,6 +83,13 @@ const Offers = () => {
           gallery {
             url
             name
+            localFile {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
           }
         }
       }

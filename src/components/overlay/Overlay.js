@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { motion } from "framer-motion"
 
 import { removeQueryFromLink } from "../../helper/linkController"
 import overlayClose from "../../assets/images/overlayClose.svg"
@@ -15,7 +16,7 @@ const OverlayBackground = styled.div`
   z-index: 2;
 `
 
-const OverlayWindow = styled.div`
+const OverlayWindow = styled(motion.div)`
   background-color: white;
   position: relative;
   width: 100%;
@@ -61,10 +62,17 @@ const OverlayContent = styled.div`
   height: 85%;
 `
 
-const Overlay = ({ title, children }) => {
+const Overlay = ({ title, children, noAnimate }) => {
   return (
     <OverlayBackground>
-      <OverlayWindow>
+      <OverlayWindow
+        initial={
+          noAnimate ? { opacity: 0 } : { opacity: 0, y: "-50%", x: "50%" }
+        }
+        animate={
+          noAnimate ? { opacity: 1 } : { opacity: 1, y: "-50%", x: "-50%" }
+        }
+      >
         <OverlayTopWrapper>
           <OverlayTitle>{title}</OverlayTitle>
           <OverlayCloseButton to={removeQueryFromLink("overlay")} />

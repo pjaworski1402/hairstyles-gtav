@@ -40,7 +40,7 @@ const Price = styled.span`
 `
 
 const Gallery = ({ data, cartContext }) => {
-  const [selectedPhoto, setSelectedPhoto] = useState(data.gallery[0].url)
+  const [selectedPhoto, setSelectedPhoto] = useState(data.gallery[0])
   const imageWidth = "400px"
   const selectedPhotoBorder = img =>
     selectedPhoto === img
@@ -48,17 +48,19 @@ const Gallery = ({ data, cartContext }) => {
       : null
   return (
     <GalleryWrapper>
-      <Image src={`${selectedPhoto}`} width={imageWidth} />
+      <Image src={selectedPhoto} width={imageWidth} />
       <ImagesWrapper>
-        {data.gallery.map(({ url }) => (
-          <SelectImageBtn
-            key={Math.random()}
-            onClick={() => setSelectedPhoto(url)}
-            style={selectedPhotoBorder(url)}
-          >
-            <Image src={`${url}`} width={"50px"} />
-          </SelectImageBtn>
-        ))}
+        {data.gallery.map(media => {
+          return (
+            <SelectImageBtn
+              key={Math.random()}
+              onClick={() => setSelectedPhoto(media)}
+              style={selectedPhotoBorder(media)}
+            >
+              <Image src={media} width={"50px"} />
+            </SelectImageBtn>
+          )
+        })}
       </ImagesWrapper>
       <BuyWrapper>
         <BuyButton

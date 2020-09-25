@@ -29,7 +29,7 @@ const ClearTags = styled.button`
   position: absolute;
   right: 0;
   bottom: -100%;
-  display: ${({ display }) => (display ? "initial" : "none")};
+  display: ${({ isDisplayed }) => (isDisplayed ? "initial" : "none")};
 `
 
 const Search = () => {
@@ -66,7 +66,7 @@ const Search = () => {
       />
       <ClearTags
         onClick={() => handleClickClear()}
-        display={!!searchContext.searchState}
+        isDisplayed={!!searchContext.searchState}
       >
         Clear tags
       </ClearTags>
