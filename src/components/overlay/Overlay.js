@@ -66,12 +66,13 @@ const Overlay = ({ title, children, noAnimate }) => {
   return (
     <OverlayBackground>
       <OverlayWindow
-        initial={
-          noAnimate ? { opacity: 0 } : { opacity: 0, y: "-50%", x: "50%" }
-        }
-        animate={
-          noAnimate ? { opacity: 1 } : { opacity: 1, y: "-50%", x: "-50%" }
-        }
+      //Motion blure image
+        // initial={
+        //   noAnimate ? { opacity: 0 } : { opacity: 0, y: "-50%", x: "50%" }
+        // }
+        // animate={
+        //   noAnimate ? { opacity: 1 } : { opacity: 1, y: "-50%", x: "-50%" }
+        // }
       >
         <OverlayTopWrapper>
           <OverlayTitle>{title}</OverlayTitle>

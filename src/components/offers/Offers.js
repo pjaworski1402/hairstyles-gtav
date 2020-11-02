@@ -85,7 +85,7 @@ const Offers = () => {
             name
             localFile {
               childImageSharp {
-                fluid {
+                fluid(quality: 100) {
                   ...GatsbyImageSharpFluid_tracedSVG
                 }
               }
