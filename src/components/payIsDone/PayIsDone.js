@@ -46,7 +46,7 @@ const PayIsDone = ({ status }) => {
           {status === statusString.done ? (
             <>
               Your hairstyles have been delivered to
-              <b>{parsed.email}</b>
+              <b>&nbsp;{parsed.email}</b>
             </>
           ) : (
             <>The order has not been placed</>
