@@ -4,6 +4,8 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import hairImage from "../assets/images/womanCar.jpg"
 
+const isBrowser = typeof window !== `undefined`
+
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
     graphql`
@@ -20,6 +22,16 @@ function SEO({ description, lang, meta, title }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
+
+  const google = ()=>{
+    if(isBrowser){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-183096934-1');
+  }
+  }
 
   return (
     <Helmet
@@ -64,6 +76,12 @@ function SEO({ description, lang, meta, title }) {
       ].concat(meta)}
     >
       <link rel="canonical" href="https://hairstyles-gta5.com/" />
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-183096934-1" >
+      </script>
+      {
+        google()
+      }
+
     </Helmet>
   )
 }

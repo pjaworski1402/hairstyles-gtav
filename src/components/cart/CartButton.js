@@ -39,7 +39,7 @@ const CartCounter = styled.div`
 const CartButton = () => {
   const cartContext = useContext(CartContext)
   return (
-    <CartWrapper img={CartButtonImage} to={addQueryToLink(`?overlay=cart`)}>
+    <CartWrapper img={CartButtonImage} to={!cartContext.state.length?addQueryToLink(``):addQueryToLink(`?overlay=cart`)}>
       <CartCounter>{cartContext.state.length}</CartCounter>
     </CartWrapper>
   )

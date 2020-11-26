@@ -74,6 +74,7 @@ const Offers = () => {
             tagName
             id
           }
+          oldPrice
           price
           strapiId
           isFree

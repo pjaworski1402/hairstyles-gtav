@@ -139,7 +139,7 @@ const OfferCard = ({ data }) => {
           >
             Add to cart
           </PrimaryButton>
-          <StyledPrice>{data.price}$</StyledPrice>
+          <StyledPrice>{data.oldPrice>data.price?<><big style={{color:'red'}}>{data.price}$</big> <small><s>{data.oldPrice}$</s></small></>:<>{data.price}$</>}</StyledPrice>
         </BuyWrapper>
       </StyledOfferCard>
     </>
