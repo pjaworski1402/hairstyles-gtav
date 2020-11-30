@@ -10,7 +10,7 @@ import { addQueryToLink } from "../../helper/linkController"
 
 const CartWrapper = styled(Link)`
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   bottom: 3%;
   right: 3%;
   width: 70px;

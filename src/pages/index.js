@@ -13,7 +13,6 @@ import YOS from "../components/yourOwnStyle/YourOwnStyle"
 import { Cart } from "../components/cart/CartButton"
 import BurgerOverlay from "../components/topBar/BurgerOverlay"
 import PayIsDone from "../components/payIsDone/PayIsDone"
-import BlackWeek from "../components/blackWeek/BlackWeek"
 
 const GlobalStyle = createGlobalStyle`
 body{
@@ -64,7 +63,6 @@ const IndexPage = () => {
           </Location>
         </div>
         <Banner />
-        <BlackWeek />
         <Search />
         <Offers />
       </Layout>

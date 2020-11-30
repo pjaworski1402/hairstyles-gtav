@@ -12,6 +12,7 @@ background-color: #275fff;
 padding:10px 10% 10px 10px;
 color: white;
 box-shadow: 0 0 15px black;
+z-index:1;
 `
 
 const CloseButton = styled.button`
