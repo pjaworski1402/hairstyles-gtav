@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Piotr Jaowrski",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.10.7",
     "framer-motion": "^1.11.1",
     "gatsby": "^2.23.3",
