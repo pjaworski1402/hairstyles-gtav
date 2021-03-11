@@ -58,7 +58,7 @@ const Footer = () => {
         <Link
           target="_blank"
           rel="noopener"
-          href="https://discord.com/invite/u4AdR9m"
+          href="https://discord.gg/NJcfymTPs7"
         >
           <LinkImg src={discord} alt="discord" />
         </Link>
