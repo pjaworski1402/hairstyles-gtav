@@ -12,6 +12,10 @@ const navs = [
     navTo: "?group=clothes",
   },
   {
+    name: "peds",
+    navTo: "?group=peds",
+  },
+  {
     name: "your style",
     navTo: "?overlay=yos",
   },
