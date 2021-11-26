@@ -13,7 +13,7 @@ import YOS from "../components/yourOwnStyle/YourOwnStyle"
 import { Cart } from "../components/cart/CartButton"
 import BurgerOverlay from "../components/topBar/BurgerOverlay"
 import PayIsDone from "../components/payIsDone/PayIsDone"
-// import EventBanner from "../components/eventBanner/EventBanner"
+import EventBanner from "../components/eventBanner/EventBanner"
 
 const GlobalStyle = createGlobalStyle`
 body{
@@ -58,13 +58,13 @@ const IndexPage = () => {
                 case "error":
                   return <PayIsDone status="error" />
                 default:
-                  break;
+                  break
               }
             }}
           </Location>
         </div>
         <Banner />
-        {/* <EventBanner /> */}
+        <EventBanner />
         <Search />
         <Offers />
       </Layout>
