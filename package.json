@@ -3,7 +3,7 @@
   "private": false,
   "description": "Hairstyles store for gta V.",
   "version": "0.1.0",
-  "author": "Piotr Jaowrski",
+  "author": "Piotr Jaworski",
   "dependencies": {
     "axios": "^0.19.2",
     "babel-plugin-styled-components": "^1.10.7",
@@ -50,7 +50,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "gp":"gh-pages -d public"
   },
   "repository": {
     "type": "git",
