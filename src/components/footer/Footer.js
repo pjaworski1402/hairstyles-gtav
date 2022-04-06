@@ -8,8 +8,22 @@ const FooterWraper = styled.footer`
   border: 1px solid black;
   padding: 15px;
   display: flex;
+  flex-wrap:wrap;
   justify-content: space-between;
   position: relative;
+  .policies{
+    border-top: 1px solid black;
+    padding-top: 28px;
+    width: 100%;
+    display:flex;
+    list-style:none;
+    justify-content: space-evenly;
+    font-size: 13px;
+    a{
+      color:black;
+    text-decoration: none;
+    }
+  }
 `
 const Link = styled.a`
   display: flex;
@@ -68,6 +82,20 @@ const Footer = () => {
       </FooterHeader>
       <Author>Site created by Piotr Jaworski</Author>
       <div style={{ width: "30px" }} />
+      <ul className="policies">
+        <li>
+          <a href="/privacypolicy" target="_blank" rel="noreferrer">Privacy Policy</a>
+        </li>
+        <li>
+          <a href="/terms" target="_blank" rel="noreferrer">Terms and Conditions</a>
+        </li>
+        <li>
+          <a href="/cookies" target="_blank" rel="noreferrer">The use of the Cookies</a>
+        </li>
+        <li>
+          <a href="/refund" target="_blank" rel="noreferrer">Refund and Returns Policy</a>
+        </li>
+      </ul>
     </FooterWraper>
   )
 }

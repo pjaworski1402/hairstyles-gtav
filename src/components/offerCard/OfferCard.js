@@ -99,9 +99,9 @@ const OfferCard = ({ data }) => {
   const cartContext = useContext(CartContext)
   const searchContext = useContext(SearchContext)
   const searchTags = searchContext.searchState.split(" ")
-  const inCart = !!cartContext.state.find(
-    state => state.strapiId === data.strapiId
-  )
+  // const inCart = !!cartContext.state.find(
+  //   state => state.strapiId === data.strapiId
+  // )
   return (
     <>
       {overlayOpen && (

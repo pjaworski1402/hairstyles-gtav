@@ -34,8 +34,8 @@ const Cookie = ({setCookieState}) => {
     return ( 
         <CookieStyle>
             We use cookies to understand how you use our site and to improve your experience. 
-            This includes personalizing content. To learn more, <a href="https://www.cookiepolicygenerator.com/live.php?token=JdzSp2gyTRS5WNYbTeRhHqZ4ypO9FTQZ">click here.</a> 
-            By continuing to use our site, you accept our use of cookies, revised Privacy Policy and Terms of Use. 
+            This includes personalizing content. To learn more, <a href="/cookies" target='_blank'>click here.</a> 
+            By continuing to use our site, you accept our use of cookies, revised Privacy Policy and Terms and Conditions. 
             <CloseButton onClick={()=>setCookieInfo()}>Click here to close</CloseButton>
         </CookieStyle>
      );
