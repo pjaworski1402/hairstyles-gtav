@@ -83,6 +83,9 @@ const Footer = () => {
       <Author>Site created by Piotr Jaworski</Author>
       <div style={{ width: "30px" }} />
       <ul className="policies">
+      <li>
+          <a href="/pedsizes" target="_blank" rel="noreferrer">Ped sizes</a>
+        </li>
         <li>
           <a href="/privacypolicy" target="_blank" rel="noreferrer">Privacy Policy</a>
         </li>

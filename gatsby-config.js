@@ -15,7 +15,7 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: `https://hairstyles-gtav.herokuapp.com`,
-        queryLimit: 1000, // Default to 100
+        queryLimit: 5000, // Default to 100
         contentTypes: [`category`, `offer`, `tag`],
       },
     },
