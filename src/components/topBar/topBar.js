@@ -1,5 +1,5 @@
 import React from "react"
-import LogoImage from "./LogoImage"
+// import LogoImage from "./LogoImage"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
@@ -66,7 +66,7 @@ const TopBar = () => {
     <>
       <TopBarWrapper>
         <Logo href="/">
-          <LogoImage />
+          {/* <LogoImage /> */}
           <LogoText>hairstyles-gta5</LogoText>
         </Logo>
         {navs.map(({ navTo, name }) => {
